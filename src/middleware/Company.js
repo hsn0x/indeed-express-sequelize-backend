@@ -11,7 +11,7 @@ export default {
             })
         }
 
-        const company = companiesQueries.findByPkQuery(company.id)
+        const company = companiesQueries.findByPk(company.id)
 
         const isOwner = company.UserId === user.id
 

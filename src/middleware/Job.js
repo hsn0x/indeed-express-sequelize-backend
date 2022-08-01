@@ -11,7 +11,7 @@ export default {
             })
         }
 
-        const job = jobsQueries.findByPkQuery(job.id)
+        const job = jobsQueries.findByPk(job.id)
 
         const isOwner = job.UserId === user.id
 

@@ -4,7 +4,7 @@ import { CompanyValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await companiesQueries.findOneQuery({ where: { id } })
+        const data = await companiesQueries.findOne({ where: { id } })
         if (data) {
             res.status(200).json(data)
         } else {
@@ -20,7 +20,7 @@ export default {
             page: parseInt(page),
             size: parseInt(size),
         }
-        const data = await companiesQueries.findAllQuery(
+        const data = await companiesQueries.findAll(
             {},
             ["withAssociations"],
             params
@@ -35,25 +35,39 @@ export default {
     create: async (req, res) => {
         const { session, user } = req
 
-        const { rate, title, content, productId } = req.body
+        const {
+            name,
+            about,
+            ceo,
+            founded,
+            companySize,
+            revenue,
+            industry,
+            headquarters,
+            link,
+        } = req.body
         const data = {
-            rate: parseInt(rate),
-            title,
-            content,
-            productId: parseInt(productId),
+            name,
+            about,
+            ceo,
+            founded,
+            company_size: Number(companySize),
+            revenue: Number(revenue),
+            industry,
+            headquarters,
+            link,
             UserId: user.id,
         }
 
-        const isCompanyValid = CompanyValidation.validateCreate(data)
-
-        if (!isCompanyValid.valid) {
+        const isValid = await CompanyValidation.validateCreate(data)
+        if (!isValid.valid) {
             return res.status(400).json({
                 message: "Invalid record data",
-                errors: isCompanyValid.errors,
+                errors: isValid.errors,
             })
         }
 
-        const recordCreated = await companiesQueries.createQuery(data)
+        const recordCreated = await companiesQueries.create(data)
 
         if (recordCreated) {
             return res.status(201).json(recordCreated)
@@ -66,20 +80,37 @@ export default {
         const id = parseInt(req.params.id)
         const { session, user } = req
 
-        const { rate } = req.body
-
+        const {
+            name,
+            about,
+            ceo,
+            founded,
+            companySize,
+            revenue,
+            industry,
+            headquarters,
+            link,
+        } = req.body
         const data = {
-            rate: parseInt(rate),
+            name,
+            about,
+            ceo,
+            founded,
+            company_size: Number(companySize),
+            revenue: Number(revenue),
+            industry,
+            headquarters,
+            link,
             UserId: user.id,
         }
 
-        const isCompanyValid = CompanyValidation.validateUpdateCompany(data)
+        const isValid = await CompanyValidation.validateUpdate(data)
 
-        if (!isCompanyValid) {
+        if (!isValid) {
             res.status(400).json({ message: "Record not updated" })
         }
 
-        const recordUpdated = await companiesQueries.updateQuery(data, {
+        const recordUpdated = await companiesQueries.update(data, {
             id,
         })
 
@@ -94,7 +125,7 @@ export default {
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        const recordDeleted = await companiesQueries.deleteQuery({ id })
+        const recordDeleted = await companiesQueries.delete({ id })
         res.status(200).json(recordDeleted)
     },
 }

@@ -72,7 +72,7 @@ export default {
             })
         }
 
-        const user = await authQueries.registerQuery(data)
+        const user = await authQueries.register(data)
 
         if (user) {
             res.status(201).json({

@@ -11,7 +11,7 @@ export default {
             })
         }
 
-        const review = reviewsQueries.findByPkQuery(review.id)
+        const review = reviewsQueries.findByPk(review.id)
 
         const isOwner = review.UserId === user.id
 

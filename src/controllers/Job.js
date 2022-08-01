@@ -4,7 +4,7 @@ import { JobValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await jobsQueries.findOneQuery({ where: { id } })
+        const data = await jobsQueries.findOne({ where: { id } })
         if (data) {
             res.status(200).json(data)
         } else {
@@ -20,11 +20,7 @@ export default {
             page: parseInt(page),
             size: parseInt(size),
         }
-        const data = await jobsQueries.findAllQuery(
-            {},
-            ["withAssociations"],
-            params
-        )
+        const data = await jobsQueries.findAll({}, ["withAssociations"], params)
         if (data) {
             res.status(200).json(data)
         } else {
@@ -35,25 +31,35 @@ export default {
     create: async (req, res) => {
         const { session, user } = req
 
-        const { rate, title, content, productId } = req.body
-        const data = {
-            rate: parseInt(rate),
+        const {
             title,
-            content,
-            productId: parseInt(productId),
-            UserId: user.id,
+            description,
+            salary_min,
+            salary_max,
+            type,
+            industry,
+            CompanyId,
+        } = req.body
+        const data = {
+            title,
+            description,
+            salary_min: Number(salary_min),
+            salary_max: Number(salary_max),
+            type,
+            industry,
+            CompanyId: Number(CompanyId),
         }
 
-        const isJobValid = JobValidation.validateCreate(data)
+        const isValid = JobValidation.validateCreate(data)
 
-        if (!isJobValid.valid) {
+        if (!isValid.valid) {
             return res.status(400).json({
                 message: "Invalid record data",
-                errors: isJobValid.errors,
+                errors: isValid.errors,
             })
         }
 
-        const recordCreated = await jobsQueries.createQuery(data)
+        const recordCreated = await jobsQueries.create(data)
 
         if (recordCreated) {
             return res.status(201).json(recordCreated)
@@ -66,20 +72,32 @@ export default {
         const id = parseInt(req.params.id)
         const { session, user } = req
 
-        const { rate } = req.body
-
+        const {
+            title,
+            description,
+            salary_min,
+            salary_max,
+            type,
+            industry,
+            CompanyId,
+        } = req.body
         const data = {
-            rate: parseInt(rate),
-            UserId: user.id,
+            title,
+            description,
+            salary_min: Number(salary_min),
+            salary_max: Number(salary_max),
+            type,
+            industry,
+            CompanyId: Number(CompanyId),
         }
 
-        const isJobValid = JobValidation.validateUpdateJob(data)
+        const isValid = JobValidation.validateUpdate(data)
 
-        if (!isJobValid) {
+        if (!isValid) {
             res.status(400).json({ message: "Record not updated" })
         }
 
-        const recordUpdated = await jobsQueries.updateQuery(data, {
+        const recordUpdated = await jobsQueries.update(data, {
             id,
         })
 
@@ -94,7 +112,7 @@ export default {
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        const recordDeleted = await jobsQueries.deleteQuery({ id })
+        const recordDeleted = await jobsQueries.delete({ id })
         res.status(200).json(recordDeleted)
     },
 }

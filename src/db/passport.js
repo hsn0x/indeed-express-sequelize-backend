@@ -7,7 +7,7 @@ passport.use(localStrategy)
 passport.serializeUser((user, done) => done(null, user.id))
 passport.deserializeUser(async (userId, done) => {
     try {
-        const user = await usersQueries.findByPkQuery(userId, [
+        const user = await usersQueries.findByPk(userId, [
             "withoutPassword",
             "withAssociations",
         ])

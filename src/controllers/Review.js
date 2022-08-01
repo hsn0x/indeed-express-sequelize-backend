@@ -4,7 +4,7 @@ import { ReviewValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await reviewsQueries.findOneQuery({ where: { id } })
+        const data = await reviewsQueries.findOne({ where: { id } })
         if (data) {
             res.status(200).json(data)
         } else {
@@ -20,7 +20,7 @@ export default {
             page: parseInt(page),
             size: parseInt(size),
         }
-        const data = await reviewsQueries.findAllQuery(
+        const data = await reviewsQueries.findAll(
             {},
             ["withAssociations"],
             params
@@ -35,25 +35,25 @@ export default {
     create: async (req, res) => {
         const { session, user } = req
 
-        const { rate, title, content, productId } = req.body
+        const { rate, title, content, CompanyId } = req.body
         const data = {
-            rate: parseInt(rate),
+            rate: Number(rate),
             title,
             content,
-            productId: parseInt(productId),
+            CompanyId,
             UserId: user.id,
         }
 
-        const isReviewValid = ReviewValidation.validateCreate(data)
+        const isValid = ReviewValidation.validateCreate(data)
 
-        if (!isReviewValid.valid) {
+        if (!isValid.valid) {
             return res.status(400).json({
                 message: "Invalid record data",
-                errors: isReviewValid.errors,
+                errors: isValid.errors,
             })
         }
 
-        const recordCreated = await reviewsQueries.createQuery(data)
+        const recordCreated = await reviewsQueries.create(data)
 
         if (recordCreated) {
             return res.status(201).json(recordCreated)
@@ -66,20 +66,22 @@ export default {
         const id = parseInt(req.params.id)
         const { session, user } = req
 
-        const { rate } = req.body
-
+        const { rate, title, content, CompanyId } = req.body
         const data = {
-            rate: parseInt(rate),
+            rate: Number(rate),
+            title,
+            content,
+            CompanyId,
             UserId: user.id,
         }
 
-        const isReviewValid = ReviewValidation.validateUpdateReview(data)
+        const isValid = ReviewValidation.validateUpdate(data)
 
-        if (!isReviewValid) {
+        if (!isValid) {
             res.status(400).json({ message: "Record not updated" })
         }
 
-        const recordUpdated = await reviewsQueries.updateQuery(data, {
+        const recordUpdated = await reviewsQueries.update(data, {
             id,
         })
 
@@ -94,7 +96,7 @@ export default {
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        const recordDeleted = await reviewsQueries.deleteQuery({ id })
+        const recordDeleted = await reviewsQueries.delete({ id })
         res.status(200).json(recordDeleted)
     },
 }

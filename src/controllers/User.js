@@ -4,7 +4,7 @@ import { UserValidation } from "../validation/index.js"
 
 export default {
     getAll: async (req, res) => {
-        const users = await usersQueries.findAllUsersQuery(true)
+        const users = await usersQueries.findAllUsers(true)
         if (users) {
             res.status(200).json({ users })
         } else {
@@ -14,7 +14,7 @@ export default {
 
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const user = await usersQueries.findOneQuery({ where: { id } })
+        const user = await usersQueries.findOne({ where: { id } })
         if (user) {
             res.status(200).json({ user })
         } else {
@@ -24,7 +24,7 @@ export default {
 
     getByUsername: async (req, res) => {
         const username = req.params.username
-        const user = await usersQueries.findOneQuery({ where: { username } })
+        const user = await usersQueries.findOne({ where: { username } })
         if (user) {
             res.status(200).json({ user })
         } else {
@@ -36,7 +36,7 @@ export default {
 
     getByEmail: async (req, res) => {
         const email = parseInt(req.params.email)
-        const user = await usersQueries.findOneQuery({ where: { email } })
+        const user = await usersQueries.findOne({ where: { email } })
         if (user) {
             res.status(200).json({ user })
         } else {
@@ -82,7 +82,7 @@ export default {
             })
         }
 
-        const user = await usersQueries.createQuery(userData)
+        const user = await usersQueries.create(userData)
 
         if (user) {
             res.status(201).json({
@@ -112,7 +112,7 @@ export default {
 
         userData.age = Number(userData.age)
 
-        const isUserValid = UserValidation.validateUpdateUser(userData)
+        const isUserValid = UserValidation.validateUpdate(userData)
 
         if (!isUserValid.valid) {
             return res.status(401).json({
@@ -121,7 +121,7 @@ export default {
             })
         }
 
-        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        const recordUpdated = await usersQueries.update(userData, { id })
         if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
@@ -143,7 +143,7 @@ export default {
             email,
         }
 
-        const isUserValid = UserValidation.validateUpdateUserEmail(userData)
+        const isUserValid = UserValidation.validateUpdateEmail(userData)
 
         if (!isUserValid.valid) {
             return res.status(401).json({
@@ -151,7 +151,7 @@ export default {
                 errors: isUserValid.errors,
             })
         }
-        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        const recordUpdated = await usersQueries.update(userData, { id })
         if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
@@ -173,7 +173,7 @@ export default {
             })
         }
 
-        const currentUser = await usersQueries.findOneQuery({ where: { id } })
+        const currentUser = await usersQueries.findOne({ where: { id } })
         if (!currentUser) {
             return res.status(404).json({
                 message: `User not found with ID: ${id}`,
@@ -189,7 +189,7 @@ export default {
         /**
          * Check if the current password is valid
          */
-        let isUserValid = UserValidation.validateUpdateUserPassword({
+        let isUserValid = UserValidation.validateUpdatePassword({
             ...userData,
             passwordHash: currentUser.passwordHash,
             passwordSalt: currentUser.passwordSalt,
@@ -208,7 +208,7 @@ export default {
         /**
          * Check if the current password is valid
          */
-        isUserValid = UserValidation.validateUpdateUserPassword(userData)
+        isUserValid = UserValidation.validateUpdatePassword(userData)
         if (!isUserValid.valid) {
             return res.status(401).json({
                 valid: isUserValid.valid,
@@ -232,7 +232,7 @@ export default {
         }
 
         userData.password = userData.newPassword
-        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        const recordUpdated = await usersQueries.update(userData, { id })
         if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
@@ -246,7 +246,7 @@ export default {
     },
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        await usersQueries.deleteQuery({ id })
+        await usersQueries.delete({ id })
         res.status(200).json({ message: `User deleted with ID: ${id}` })
     },
 }

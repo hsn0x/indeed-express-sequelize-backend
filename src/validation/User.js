@@ -73,7 +73,7 @@ export default {
             }
         return { valid }
     },
-    validateUpdateUser: async (userData) => {
+    validateUpdate: async (userData) => {
         const valid = ajv.validate(UpdateSchema, userData)
         if (!valid)
             return {
@@ -82,7 +82,7 @@ export default {
             }
         return { valid }
     },
-    validateUpdateUserEmail: async (userData) => {
+    validateUpdateEmail: async (userData) => {
         const valid = ajv.validate(UpdateUserEmailSchema, userData)
         if (!valid)
             return {
@@ -91,7 +91,7 @@ export default {
             }
         return { valid }
     },
-    validateUpdateUserPassword: async (userData) => {
+    validateUpdatePassword: async (userData) => {
         const valid = ajv.validate(UpdateUserPasswordSchema, userData)
         if (!valid)
             return {

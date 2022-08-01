@@ -45,7 +45,7 @@ export default {
             }
         return { valid }
     },
-    validateUpdateJob: async (reviewData) => {
+    validateUpdate: async (reviewData) => {
         const valid = ajv.validate(UpdateSchema, reviewData)
         if (!valid)
             return {

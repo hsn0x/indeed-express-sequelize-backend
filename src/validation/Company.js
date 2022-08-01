@@ -10,7 +10,7 @@ const CreateSchema = {
         ceo: { type: "string" },
         founded: { type: "string" },
         company_size: { type: "number" },
-        revenue: { type: "string" },
+        revenue: { type: "number" },
         industry: { type: "string" },
         headquarters: { type: "string" },
         link: { type: "string" },
@@ -28,7 +28,7 @@ const UpdateSchema = {
         ceo: { type: "string" },
         founded: { type: "string" },
         company_size: { type: "number" },
-        revenue: { type: "string" },
+        revenue: { type: "number" },
         industry: { type: "string" },
         headquarters: { type: "string" },
         link: { type: "string" },
@@ -39,8 +39,8 @@ const UpdateSchema = {
 }
 
 export default {
-    validateCreate: async (reviewData) => {
-        const valid = ajv.validate(CreateSchema, reviewData)
+    validateCreate: async (data) => {
+        const valid = ajv.validate(CreateSchema, data)
         if (!valid)
             return {
                 valid,
@@ -48,8 +48,8 @@ export default {
             }
         return { valid }
     },
-    validateUpdateCompany: async (reviewData) => {
-        const valid = ajv.validate(UpdateSchema, reviewData)
+    validateUpdate: async (data) => {
+        const valid = ajv.validate(UpdateSchema, data)
         if (!valid)
             return {
                 valid,

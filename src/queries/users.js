@@ -1,24 +1,24 @@
 import { UserScope } from "../scopes/index.js"
 
 export default {
-    findAllUsersQuery: async (filter, scope) => {
+    findAllUsers: async (filter, scope) => {
         return await UserScope.scope(scope).findAll(filter)
     },
-    findByPkQuery: async (id, scope) => {
+    findByPk: async (id, scope) => {
         return await UserScope.scope(scope).findByPk(id)
     },
-    findOneQuery: async (filter, scope) => {
+    findOne: async (filter, scope) => {
         return await UserScope.scope(scope).findOne(filter)
     },
-    createQuery: async (user) => {
+    create: async (user) => {
         const recordCreated = await UserScope.create(user)
         return recordCreated
     },
-    updateQuery: async (user, filter) => {
+    update: async (user, filter) => {
         const recordUpdated = await UserScope.update(user, filter)
         return recordUpdated
     },
-    deleteQuery: async (filter) => {
+    delete: async (filter) => {
         const recordDeleted = await UserScope.destroy(filter)
         return recordDeleted
     },

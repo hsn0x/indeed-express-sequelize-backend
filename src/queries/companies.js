@@ -2,7 +2,7 @@ import { CompanyScope } from "../scopes/index.js"
 import { getPagination, getPagingData } from "../lib/handlePagination.js"
 
 export default {
-    findAllQuery: async (filter, scope, { page, size }) => {
+    findAll: async (filter, scope, { page, size }) => {
         const { limit, offset } = getPagination(page, size)
 
         const rows = await CompanyScope.scope(scope).findAll({
@@ -25,11 +25,11 @@ export default {
         }
     },
 
-    findByPkQuery: async (id, scope) => {
+    findByPk: async (id, scope) => {
         const record = await CompanyScope.scope(scope).findByPk(id)
         return record
     },
-    findOneQuery: async (filter, scope) => {
+    findOne: async (filter, scope) => {
         const record = await CompanyScope.scope(scope).findOne(filter)
         return record
     },
