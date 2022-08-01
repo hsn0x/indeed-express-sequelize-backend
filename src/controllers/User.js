@@ -4,7 +4,10 @@ import { UserValidation } from "../validation/index.js"
 
 export default {
     getAll: async (req, res) => {
-        const records = await usersQueries.findAll({}, ["withAssociations"])
+        const records = await usersQueries.findAll({}, [
+            "withAssociations",
+            "withoutPassword",
+        ])
 
         if (records) {
             res.status(200).json({ records })
@@ -17,6 +20,7 @@ export default {
         const id = parseInt(req.params.id)
         const record = await usersQueries.findOne({ where: { id } }, [
             "withAssociations",
+            "withoutPassword",
         ])
 
         if (record) {
@@ -29,6 +33,7 @@ export default {
         const username = req.params.username
         const record = await usersQueries.findOne({ where: { username } }, [
             "withAssociations",
+            "withoutPassword",
         ])
 
         if (record) {
@@ -43,6 +48,7 @@ export default {
         const email = parseInt(req.params.email)
         const record = await usersQueries.findOne({ where: { email } }, [
             "withAssociations",
+            "withoutPassword",
         ])
 
         if (record) {
