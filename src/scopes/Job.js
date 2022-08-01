@@ -1,13 +1,13 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
 import {
-    ReviewModel,
+    JobModel,
     CompanyModel,
     Image,
     User,
     CompanyModel,
 } from "../models/index.js"
 
-ReviewModel.addScope("withAssociations", {
+JobModel.addScope("withAssociations", {
     include: [
         {
             model: User,
@@ -24,4 +24,4 @@ ReviewModel.addScope("withAssociations", {
     ],
 })
 
-export default ReviewModel
+export default JobModel
