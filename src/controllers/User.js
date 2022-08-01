@@ -129,11 +129,11 @@ export default {
             })
         }
 
-        const updatedUser = await usersQueries.updateQuery(userData, { id })
-        if (updatedUser) {
+        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
-                updatedUser,
+                recordUpdated,
             })
         } else {
             res.status(500).json({
@@ -159,11 +159,11 @@ export default {
                 errors: isUserValid.errors,
             })
         }
-        const updatedUser = await usersQueries.updateQuery(userData, { id })
-        if (updatedUser) {
+        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
-                data: updatedUser,
+                data: recordUpdated,
             })
         } else {
             res.status(500).json({
@@ -240,11 +240,11 @@ export default {
         }
 
         userData.password = userData.newPassword
-        const updatedUser = await usersQueries.updateQuery(userData, { id })
-        if (updatedUser) {
+        const recordUpdated = await usersQueries.updateQuery(userData, { id })
+        if (recordUpdated) {
             res.status(200).json({
                 message: `User updated with ID: ${user.id}`,
-                data: updatedUser,
+                data: recordUpdated,
             })
         } else {
             res.status(500).json({

@@ -1,8 +1,8 @@
-export { default as User } from "./User.js"
+export { default as UserModel } from "./User.js"
 
-export { default as Image } from "./Image.js"
-export { default as Avatar } from "./Avatar.js"
+export { default as ImageModel } from "./Image.js"
+export { default as AvatarModel } from "./Avatar.js"
 
-export { default as Job } from "./Job.js"
-export { default as Company } from "./Company.js"
-export { default as Review } from "./Review.js"
+export { default as JobModel } from "./Job.js"
+export { default as CompanyModel } from "./Company.js"
+export { default as ReviewModel } from "./Review.js"

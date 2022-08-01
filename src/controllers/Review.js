@@ -1,5 +1,6 @@
 import { reviewsQueries } from "../queries/index.js"
 import { ReviewValidation } from "../validation/index.js"
+
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
@@ -35,7 +36,7 @@ export default {
         const { session, user } = req
 
         const { rate, title, content, productId } = req.body
-        const reviewData = {
+        const data = {
             rate: parseInt(rate),
             title,
             content,
@@ -43,24 +44,21 @@ export default {
             UserId: user.id,
         }
 
-        const isReviewValid = ReviewValidation.validateCreate(reviewData)
+        const isReviewValid = ReviewValidation.validateCreate(data)
 
         if (!isReviewValid.valid) {
             return res.status(400).json({
-                message: "Invalid review data",
+                message: "Invalid record data",
                 errors: isReviewValid.errors,
             })
         }
 
-        const createdReview = await reviewsQueries.createQuery(reviewData)
+        const recordCreated = await reviewsQueries.createQuery(data)
 
-        if (createdReview) {
-            return res.status(201).json({
-                message: `Review added with ID: ${createdReview.id}`,
-                data: createdReview,
-            })
+        if (recordCreated) {
+            return res.status(201).json(recordCreated)
         } else {
-            return res.status(500).json({ message: `Faile to create a review` })
+            return res.status(500).json({ message: `Faile to create a record` })
         }
     },
 
@@ -70,36 +68,33 @@ export default {
 
         const { rate } = req.body
 
-        const reviewData = {
+        const data = {
             rate: parseInt(rate),
             UserId: user.id,
         }
 
-        const isReviewValid = ReviewValidation.validateUpdateReview(reviewData)
+        const isReviewValid = ReviewValidation.validateUpdateReview(data)
 
         if (!isReviewValid) {
-            res.status(400).json({ message: "Review not updated" })
+            res.status(400).json({ message: "Record not updated" })
         }
 
-        const updatedReview = await reviewsQueries.updateQuery(reviewData, {
+        const recordUpdated = await reviewsQueries.updateQuery(data, {
             id,
         })
 
-        if (updatedReview) {
-            res.status(200).json({
-                message: `Review updated with ID: ${updatedReview[0]?.id}`,
-                data: updatedReview,
-            })
+        if (recordUpdated) {
+            res.status(200).json(recordUpdated)
         } else {
             res.status(500).json({
-                message: `Faile to update a review, ${id}`,
+                message: `Faile to update a record, ${id}`,
             })
         }
     },
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        await reviewsQueries.deleteQuery({ id })
-        res.status(200).json({ message: `Review deleted with ID: ${id}` })
+        const recordDeleted = await reviewsQueries.deleteQuery({ id })
+        res.status(200).json(recordDeleted)
     },
 }

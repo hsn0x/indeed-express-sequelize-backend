@@ -11,15 +11,15 @@ export default {
         return await UserScope.scope(scope).findOne(filter)
     },
     createQuery: async (user) => {
-        const createdUser = await UserScope.create(user)
-        return createdUser
+        const recordCreated = await UserScope.create(user)
+        return recordCreated
     },
     updateQuery: async (user, filter) => {
-        const updatedUser = await UserScope.update(user, filter)
-        return updatedUser
+        const recordUpdated = await UserScope.update(user, filter)
+        return recordUpdated
     },
     deleteQuery: async (filter) => {
-        const deletedUser = await UserScope.destroy(filter)
-        return deletedUser
+        const recordDeleted = await UserScope.destroy(filter)
+        return recordDeleted
     },
 }
