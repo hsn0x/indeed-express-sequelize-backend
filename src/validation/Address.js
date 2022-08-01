@@ -5,7 +5,10 @@ const ajv = new Ajv()
 const CreateSchema = {
     type: "object",
     properties: {
-        phone_number: { type: "number" },
+        country: { type: "number" },
+        street_address: { type: "number" },
+        city: { type: "number" },
+        postal_code: { type: "number" },
         UserId: { type: "number" },
     },
     required: [],
@@ -15,7 +18,10 @@ const CreateSchema = {
 const UpdateSchema = {
     type: "object",
     properties: {
-        phone_number: { type: "number" },
+        country: { type: "number" },
+        street_address: { type: "number" },
+        city: { type: "number" },
+        postal_code: { type: "number" },
         UserId: { type: "number" },
     },
     required: [],

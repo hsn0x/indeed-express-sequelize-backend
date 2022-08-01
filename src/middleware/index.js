@@ -11,6 +11,9 @@ export { default as ReviewMiddleware } from "./Review.js"
 export { default as CompanyMiddleware } from "./Company.js"
 export { default as JobMiddleware } from "./Job.js"
 
+export { default as AddressMiddleware } from "./Address.js"
+export { default as PhoneMiddleware } from "./Phone.js"
+
 const router = Router()
 
 const corsConfig = {

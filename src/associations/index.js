@@ -8,3 +8,6 @@ export { default as JobAssociations } from "./Job.js"
 export { default as CompanyAssociations } from "./Company.js"
 
 export { default as ReviewAssociations } from "./Review.js"
+
+export { default as AddressAssociations } from "./Address.js"
+export { default as PhoneAssociations } from "./Phone.js"
