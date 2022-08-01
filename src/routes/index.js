@@ -39,7 +39,7 @@ router.use("/users", users)
 
 router.use("/reviews", reviews)
 
-router.use("/jobs", reviews)
-router.use("/companies", reviews)
+router.use("/jobs", jobs)
+router.use("/companies", companies)
 
 export default router
