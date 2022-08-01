@@ -31,8 +31,6 @@ UserModel.hasMany(JobModel, {})
 UserModel.hasMany(CompanyModel, {})
 UserModel.hasMany(ReviewModel, {})
 
-UserModel.hasMany(PhoneModel, {})
-
 UserModel.belongsToMany(AddressModel, {
     through: {
         model: AddressAddressable,

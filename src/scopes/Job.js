@@ -5,6 +5,8 @@ import {
     UserModel,
     JobBenefitModel,
     JobQualificationModel,
+    AddressModel,
+    PhoneModel,
 } from "../models/index.js"
 
 JobModel.addScope("withAssociations", {
@@ -25,6 +27,12 @@ JobModel.addScope("withAssociations", {
         },
         {
             model: CompanyModel,
+        },
+        {
+            model: AddressModel,
+        },
+        {
+            model: PhoneModel,
         },
     ],
 })

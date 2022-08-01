@@ -82,6 +82,10 @@ export default {
                 postal_code: faker.address.zipCode(),
                 country: faker.address.country(),
             })
+
+            await user.createPhone({
+                phone_number: faker.phone.phoneNumber(),
+            })
         }
     },
 }

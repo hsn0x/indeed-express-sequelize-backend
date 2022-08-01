@@ -6,7 +6,7 @@ class Phone extends Model {}
 
 Phone.init(
     {
-        number: {
+        phone_number: {
             type: STRING,
         },
     },

@@ -31,6 +31,9 @@ export default {
                 country: faker.address.country(),
                 UserId: randomNumber(1, record),
             })
+            await job.createPhone({
+                phone_number: faker.phone.phoneNumber(),
+            })
         }
     },
 }

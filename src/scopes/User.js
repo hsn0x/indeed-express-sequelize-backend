@@ -7,6 +7,8 @@ import {
     ReviewModel,
     CompanyModel,
     JobModel,
+    AddressModel,
+    PhoneModel,
 } from "../models/index.js"
 
 import {} from "./index.js"
@@ -38,6 +40,12 @@ UserModel.addScope("withAssociations", {
         {
             model: JobModel,
             separate: true,
+        },
+        {
+            model: AddressModel,
+        },
+        {
+            model: PhoneModel,
         },
     ],
 })

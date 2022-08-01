@@ -39,6 +39,11 @@ export default {
                 country: faker.address.country(),
                 UserId: randomNumber(1, record),
             })
+
+            await company.createPhone({
+                phone_number: faker.phone.phoneNumber(),
+                UserId: randomNumber(1, record),
+            })
         }
     },
 }

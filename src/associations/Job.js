@@ -6,6 +6,8 @@ import {
     JobQualificationModel,
     AddressAddressable,
     AddressModel,
+    PhoneModel,
+    PhonePhoneable,
 } from "../models/index.js"
 
 JobModel.belongsTo(UserModel)
@@ -23,6 +25,17 @@ JobModel.belongsToMany(AddressModel, {
         },
     },
     foreignKey: "addressableId",
+    constraints: false,
+})
+JobModel.belongsToMany(PhoneModel, {
+    through: {
+        model: PhonePhoneable,
+        unique: false,
+        scope: {
+            phoneableType: "job",
+        },
+    },
+    foreignKey: "phoneableId",
     constraints: false,
 })
 
