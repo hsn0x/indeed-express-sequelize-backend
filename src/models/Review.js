@@ -18,6 +18,4 @@ const Review = sequelize.define("Review", {
     },
 })
 
-SequelizeSlugify.slugifyModel(Review, { source: ["title"] })
-
 export default Review

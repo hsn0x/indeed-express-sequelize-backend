@@ -1,6 +1,5 @@
 import { Strategy as LocalStrategy } from "passport-local"
 import { passwordMatch } from "../../lib/passwordUtils.js"
-import { User } from "../../models/index.js"
 import { usersQueries } from "../../queries/index.js"
 
 const customFields = {

@@ -1,10 +1,10 @@
-import { companysQueries } from "../queries/index.js"
+import { companiesQueries } from "../queries/index.js"
 import { CompanyValidation } from "../validation/index.js"
 
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await companysQueries.findOneQuery({ where: { id } })
+        const data = await companiesQueries.findOneQuery({ where: { id } })
         if (data) {
             res.status(200).json(data)
         } else {
@@ -20,7 +20,7 @@ export default {
             page: parseInt(page),
             size: parseInt(size),
         }
-        const data = await companysQueries.findAllQuery(
+        const data = await companiesQueries.findAllQuery(
             {},
             ["withAssociations"],
             params
@@ -53,7 +53,7 @@ export default {
             })
         }
 
-        const recordCreated = await companysQueries.createQuery(data)
+        const recordCreated = await companiesQueries.createQuery(data)
 
         if (recordCreated) {
             return res.status(201).json(recordCreated)
@@ -79,7 +79,7 @@ export default {
             res.status(400).json({ message: "Record not updated" })
         }
 
-        const recordUpdated = await companysQueries.updateQuery(data, {
+        const recordUpdated = await companiesQueries.updateQuery(data, {
             id,
         })
 
@@ -94,7 +94,7 @@ export default {
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        const recordDeleted = await companysQueries.deleteQuery({ id })
+        const recordDeleted = await companiesQueries.deleteQuery({ id })
         res.status(200).json(recordDeleted)
     },
 }

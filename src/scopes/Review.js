@@ -16,10 +16,6 @@ ReviewModel.addScope("withAssociations", {
                 ],
             },
         },
-        {
-            model: CompanyModel,
-            include: [{ model: ImageModel }],
-        },
     ],
 })
 

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker"
-import { User } from "../models/index.js"
-import { usersQueries, rolesQueries } from "../queries/index.js"
+import { UserModel } from "../models/index.js"
+import { usersQueries } from "../queries/index.js"
 import { genPassword } from "../lib/passwordUtils.js"
 
 import { ownerConfig } from "../config/index.js"
@@ -11,7 +11,7 @@ export default {
         const passwordHash = hashedPassword.hash
         const passwordSalt = hashedPassword.salt
 
-        const ADMIN_USER = await User.create({
+        const ADMIN_USER = await UserModel.create({
             firstName: ownerConfig.firstName,
             lastName: ownerConfig.lastName,
             username: ownerConfig.username,
@@ -53,7 +53,7 @@ export default {
             })
         }
 
-        const users = await User.bulkCreate(fakeUsers)
+        const users = await UserModel.bulkCreate(fakeUsers)
 
         for (let index = 0; index < record; index++) {
             const user = users[index]

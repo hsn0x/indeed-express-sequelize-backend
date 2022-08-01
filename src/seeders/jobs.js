@@ -9,10 +9,10 @@ export default {
             fakeJobs.push({
                 title: faker.name.jobTitle(),
                 description: faker.lorem.paragraph(),
-                salary_min: faker.random.number(),
-                salary_max: faker.random.number(),
+                salary_min: randomNumber(10000, 50000),
+                salary_max: randomNumber(50000, 100000),
                 type: faker.name.jobType(),
-                industry: faker.company.industry(),
+                industry: faker.company.bs(),
                 UserId: randomNumber(1, record),
             })
         }

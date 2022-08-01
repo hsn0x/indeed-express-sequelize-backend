@@ -15,7 +15,7 @@ UserModel.hasMany(ImageModel, {
         imageableType: "user",
     },
 })
-UserModel.hasMany(Avatar, {
+UserModel.hasMany(AvatarModel, {
     foreignKey: "avatarableId",
     constraints: false,
     scope: {

@@ -5,26 +5,33 @@ const ajv = new Ajv()
 const CreateSchema = {
     type: "object",
     properties: {
-        rate: { type: "number" },
-        title: { type: "string" },
-        content: { type: "string" },
-        productId: { type: "number" },
+        name: { type: "string" },
+        about: { type: "string" },
+        ceo: { type: "string" },
+        founded: { type: "string" },
+        company_size: { type: "number" },
+        revenue: { type: "string" },
+        industry: { type: "string" },
+        headquarters: { type: "string" },
+        link: { type: "string" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "content", "productId", "UserId"],
+    required: ["name", "about"],
     additionalProperties: false,
 }
 
 const UpdateSchema = {
     type: "object",
     properties: {
-        rate: { type: "number" },
         title: { type: "string" },
-        content: { type: "string" },
-        productId: { type: "number" },
+        description: { type: "string" },
+        salary_min: { type: "number" },
+        salary_max: { type: "number" },
+        type: { type: "string" },
+        industry: { type: "string" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "content", "productId", "UserId"],
+    required: ["name", "about"],
     additionalProperties: false,
 }
 
@@ -38,7 +45,7 @@ export default {
             }
         return { valid }
     },
-    validateUpdateReview: async (reviewData) => {
+    validateUpdateJob: async (reviewData) => {
         const valid = ajv.validate(UpdateSchema, reviewData)
         if (!valid)
             return {

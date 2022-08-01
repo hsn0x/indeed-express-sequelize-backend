@@ -2,7 +2,7 @@ import Ajv from "ajv"
 
 const ajv = new Ajv()
 
-const CreateUserSchema = {
+const CreateSchema = {
     type: "object",
     properties: {
         firstName: { type: "string" },
@@ -28,7 +28,7 @@ const CreateUserSchema = {
     additionalProperties: false,
 }
 
-const UpdateUserSchema = {
+const UpdateSchema = {
     type: "object",
     properties: {
         firstName: { type: "string" },
@@ -65,7 +65,7 @@ const UpdateUserPasswordSchema = {
 
 export default {
     validateCreate: async (userData) => {
-        const valid = ajv.validate(CreateUserSchema, userData)
+        const valid = ajv.validate(CreateSchema, userData)
         if (!valid)
             return {
                 valid,
@@ -74,7 +74,7 @@ export default {
         return { valid }
     },
     validateUpdateUser: async (userData) => {
-        const valid = ajv.validate(UpdateUserSchema, userData)
+        const valid = ajv.validate(UpdateSchema, userData)
         if (!valid)
             return {
                 valid,

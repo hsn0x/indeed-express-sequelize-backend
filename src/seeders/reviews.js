@@ -8,6 +8,8 @@ export default {
         for (let index = 0; index < record; index++) {
             fakeReviews.push({
                 rate: randomNumber(0, 5),
+                title: faker.lorem.sentence(),
+                content: faker.lorem.paragraph(),
                 UserId: randomNumber(1, record),
             })
         }

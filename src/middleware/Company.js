@@ -1,4 +1,4 @@
-import { companysQueries } from "../queries/index.js"
+import { companiesQueries } from "../queries/index.js"
 
 export default {
     isOwner: async (req, res, next) => {
@@ -11,7 +11,7 @@ export default {
             })
         }
 
-        const company = companysQueries.findByPkQuery(company.id)
+        const company = companiesQueries.findByPkQuery(company.id)
 
         const isOwner = company.UserId === user.id
 
