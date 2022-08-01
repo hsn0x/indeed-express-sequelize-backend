@@ -1,12 +1,12 @@
-import { Avatar, Company, User } from "../models/index.js"
+import { AvatarModel, CompanyModel, UserModel } from "../models/index.js"
 
-Avatar.belongsTo(User, {
+AvatarModel.belongsTo(UserModel, {
     foreignKey: "avatarableId",
     constraints: false,
 })
-Avatar.belongsTo(Company, {
+AvatarModel.belongsTo(CompanyModel, {
     foreignKey: "avatarableId",
     constraints: false,
 })
 
-export default Avatar
+export default AvatarModel

@@ -1,5 +1,5 @@
-import { User } from "../models/index.js"
+import { UserModel, CompanyModel } from "../models/index.js"
 
-Company.belongsTo(User)
+CompanyModel.belongsTo(UserModel)
 
-export default Company
+export default CompanyModel

@@ -1,14 +1,21 @@
-import { Avatar, Review, Image, User, Company, Job } from "../models/index.js"
+import {
+    AvatarModel,
+    ReviewModel,
+    ImageModel,
+    UserModel,
+    CompanyModel,
+    JobModel,
+} from "../models/index.js"
 
 // hasMany
-User.hasMany(Image, {
+UserModel.hasMany(ImageModel, {
     foreignKey: "imageableId",
     constraints: false,
     scope: {
         imageableType: "user",
     },
 })
-User.hasMany(Avatar, {
+UserModel.hasMany(Avatar, {
     foreignKey: "avatarableId",
     constraints: false,
     scope: {
@@ -16,8 +23,8 @@ User.hasMany(Avatar, {
     },
 })
 
-User.hasMany(Job, {})
-User.hasMany(Company, {})
-User.hasMany(Review, {})
+UserModel.hasMany(JobModel, {})
+UserModel.hasMany(CompanyModel, {})
+UserModel.hasMany(ReviewModel, {})
 
-export default User
+export default UserModel

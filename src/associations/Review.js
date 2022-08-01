@@ -1,6 +1,6 @@
-import { Company, Review, User } from "../models/index.js"
+import { CompanyModel, ReviewModel, UserModel } from "../models/index.js"
 
-Review.belongsTo(User)
-Review.belongsTo(Company)
+ReviewModel.belongsTo(UserModel)
+ReviewModel.belongsTo(CompanyModel)
 
-export default Review
+export default ReviewModel

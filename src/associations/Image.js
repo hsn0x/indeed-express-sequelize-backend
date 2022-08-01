@@ -1,13 +1,13 @@
-import { Image, Company, User } from "../models/index.js"
+import { ImageModel, CompanyModel, UserModel } from "../models/index.js"
 
 // belongsTo
-Image.belongsTo(User, {
+ImageModel.belongsTo(UserModel, {
     foreignKey: "imageableId",
     constraints: false,
 })
-Image.belongsTo(Company, {
+ImageModel.belongsTo(CompanyModel, {
     foreignKey: "imageableId",
     constraints: false,
 })
 
-export default Image
+export default ImageModel

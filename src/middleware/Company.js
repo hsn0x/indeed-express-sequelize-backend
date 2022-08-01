@@ -1,19 +1,19 @@
-import { reviewsQueries } from "../queries/index.js"
+import { companysQueries } from "../queries/index.js"
 
 export default {
     isOwner: async (req, res, next) => {
         const id = parseInt(req.params.id)
         const { session, user } = req
 
-        if (!user.Reviews || !user.Reviews.length > 0) {
+        if (!user.Companys || !user.Companys.length > 0) {
             return res.status(401).json({
                 message: `You dont have any records`,
             })
         }
 
-        const review = reviewsQueries.findByPkQuery(review.id)
+        const company = companysQueries.findByPkQuery(company.id)
 
-        const isOwner = review.UserId === user.id
+        const isOwner = company.UserId === user.id
 
         if (isOwner) {
             return next()

@@ -1,6 +1,6 @@
-import { Job, Job_Qualification, User } from "../models/index.js"
+import { JobModel, Job_QualificationModel, UserModel } from "../models/index.js"
 
-Job_Qualification.belongsTo(User)
-Job_Qualification.belongsTo(Job)
+Job_QualificationModel.belongsTo(UserModel)
+Job_QualificationModel.belongsTo(JobModel)
 
-export default Job_Qualification
+export default Job_QualificationModel

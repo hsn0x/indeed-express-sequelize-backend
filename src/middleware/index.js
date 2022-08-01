@@ -6,17 +6,10 @@ import cors from "cors"
 
 export { default as AuthMiddleware } from "./Auth.js"
 
-export { default as CategoryMiddleware } from "./Category.js"
-
-export { default as MarketMiddleware } from "./Market.js"
-export { default as ProductMiddleware } from "./Product.js"
-
-export { default as CommentMiddleware } from "./Comment.js"
 export { default as ReviewMiddleware } from "./Review.js"
 
-export { default as LikeMiddleware } from "./Like.js"
-export { default as VoteMiddleware } from "./Vote.js"
-export { default as FavoriteMiddleware } from "./Favorite.js"
+export { default as CompanyMiddleware } from "./Company.js"
+export { default as JobMiddleware } from "./Job.js"
 
 const router = Router()
 
