@@ -1,12 +1,4 @@
 import { genPassword, passwordMatch } from "../lib/passwordUtils.js"
-import {
-    Market,
-    Product,
-    Image,
-    Avatar,
-    Role,
-    Student,
-} from "../models/index.js"
 import { usersQueries } from "../queries/index.js"
 import { UserValidation } from "../validation/index.js"
 
