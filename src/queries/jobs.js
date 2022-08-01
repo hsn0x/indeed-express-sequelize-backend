@@ -1,18 +1,16 @@
-import { Op } from "sequelize"
-import { FavoriteScope } from "../scopes/index.js"
-import { Category } from "../models/index.js"
+import { JobScope } from "../scopes/index.js"
 import { getPagination, getPagingData } from "../lib/handlePagination.js"
 
 export default {
     findAllQuery: async (filter, scope, { page, size }) => {
         const { limit, offset } = getPagination(page, size)
 
-        const rows = await FavoriteScope.scope(scope).findAll({
+        const rows = await JobScope.scope(scope).findAll({
             limit,
             offset,
             filter,
         })
-        const count = await FavoriteScope.count()
+        const count = await JobScope.count()
         const { totalItems, totalPages, currentPage } = getPagingData(
             count,
             page,
@@ -26,28 +24,27 @@ export default {
             rows,
         }
     },
+
     findByPkQuery: async (id, scope) => {
-        const record = await FavoriteScope.scope(scope).findByPk(id)
+        const record = await JobScope.scope(scope).findByPk(id)
         return record
     },
     findOneQuery: async (filter, scope) => {
-        const record = await FavoriteScope.scope(scope).findOne(filter)
+        const record = await JobScope.scope(scope).findOne(filter)
         return record
     },
 
     create: async (data) => {
-        const product = await findByPkQuery(data.FavoriteId)
-
-        const recordCreated = await product.create({
-            UserId: data.UserId,
-        })
+        const recordCreated = await JobScope.create(data)
         return recordCreated
     },
-
-    update: async (data, filter) => {},
-
+    update: async (data, filter) => {
+        await JobScope.update(data, filter)
+        const recordUpdated = await JobScope.scope(scope).findOne(filter)
+        return recordUpdated
+    },
     remove: async (filter) => {
-        const recordDeleted = await Favorite.destroy(filter)
+        const recordDeleted = await JobScope.destroy(filter)
         return recordDeleted
     },
 }

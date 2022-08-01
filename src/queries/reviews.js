@@ -1,6 +1,4 @@
-import { Op } from "sequelize"
 import { ReviewScope } from "../scopes/index.js"
-import { Category } from "../models/index.js"
 import { getPagination, getPagingData } from "../lib/handlePagination.js"
 
 export default {
@@ -26,6 +24,7 @@ export default {
             rows,
         }
     },
+
     findByPkQuery: async (id, scope) => {
         const record = await ReviewScope.scope(scope).findByPk(id)
         return record
@@ -37,29 +36,15 @@ export default {
 
     create: async (data) => {
         const recordCreated = await ReviewScope.create(data)
-        console.log(recordCreated.id)
-        data.CategoriesIds.map(
-            async (ci) => await recordCreated.addCategory(ci)
-        )
         return recordCreated
     },
-
     update: async (data, filter) => {
         await ReviewScope.update(data, filter)
         const recordUpdated = await ReviewScope.scope(scope).findOne(filter)
-        recordUpdated.categories.map(
-            async (c) => await recordUpdated.removeCategory(c.id)
-        )
-        data.CategoriesIds.map(
-            async (ci) => await recordUpdated.addCategory(ci)
-        )
-
         return recordUpdated
     },
-
-    remove: async (filter, scope) => {
+    remove: async (filter) => {
         const recordDeleted = await ReviewScope.destroy(filter)
-
         return recordDeleted
     },
 }
