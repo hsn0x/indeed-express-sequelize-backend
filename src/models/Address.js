@@ -18,6 +18,12 @@ Address.init(
         postal_code: {
             type: STRING,
         },
+        addressableId: {
+            type: INTEGER,
+        },
+        addressableType: {
+            type: STRING,
+        },
     },
     { sequelize, modelName: "address" }
 )

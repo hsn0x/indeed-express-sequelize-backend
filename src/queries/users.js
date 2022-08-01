@@ -1,15 +1,17 @@
 import { UserScope } from "../scopes/index.js"
 
 export default {
-    findAllUsers: async (filter, scope) => {
+    findAll: async (filter, scope) => {
         return await UserScope.scope(scope).findAll(filter)
     },
+
     findByPk: async (id, scope) => {
         return await UserScope.scope(scope).findByPk(id)
     },
     findOne: async (filter, scope) => {
         return await UserScope.scope(scope).findOne(filter)
     },
+
     create: async (user) => {
         const recordCreated = await UserScope.create(user)
         return recordCreated

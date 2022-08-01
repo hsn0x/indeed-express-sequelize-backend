@@ -4,10 +4,8 @@ import {
     CompanyModel,
     JobBenefitModel,
     JobQualificationModel,
-    AddressAddressable,
     AddressModel,
     PhoneModel,
-    PhonePhoneable,
 } from "../models/index.js"
 
 JobModel.belongsTo(UserModel)
@@ -16,27 +14,19 @@ JobModel.belongsTo(CompanyModel)
 JobModel.hasMany(JobBenefitModel)
 JobModel.hasMany(JobQualificationModel)
 
-JobModel.belongsToMany(AddressModel, {
-    through: {
-        model: AddressAddressable,
-        unique: false,
-        scope: {
-            addressableType: "job",
-        },
-    },
+JobModel.hasMany(AddressModel, {
     foreignKey: "addressableId",
     constraints: false,
-})
-JobModel.belongsToMany(PhoneModel, {
-    through: {
-        model: PhonePhoneable,
-        unique: false,
-        scope: {
-            phoneableType: "job",
-        },
+    scope: {
+        addressableType: "user",
     },
+})
+JobModel.hasMany(PhoneModel, {
     foreignKey: "phoneableId",
     constraints: false,
+    scope: {
+        phoneableType: "job",
+    },
 })
 
 export default JobModel

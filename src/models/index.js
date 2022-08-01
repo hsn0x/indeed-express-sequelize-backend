@@ -12,7 +12,5 @@ export { default as CompanyModel } from "./Company.js"
 export { default as ReviewModel } from "./Review.js"
 
 export { default as AddressModel } from "./Address.js"
-export { default as AddressAddressable } from "./Address_Addressable.js"
 
 export { default as PhoneModel } from "./Phone.js"
-export { default as PhonePhoneable } from "./Phone_Phoneable.js"

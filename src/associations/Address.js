@@ -1,35 +1,22 @@
 import {
-    AddressAddressable,
     AddressModel,
     CompanyModel,
     JobModel,
     UserModel,
 } from "../models/index.js"
 
-AddressModel.belongsToMany(UserModel, {
-    through: {
-        model: AddressAddressable,
-        unique: false,
-    },
-    foreignKey: "addressId",
+AddressModel.belongsTo(UserModel, {
+    foreignKey: "addressableId",
     constraints: false,
 })
 
-AddressModel.belongsToMany(CompanyModel, {
-    through: {
-        model: AddressAddressable,
-        unique: false,
-    },
-    foreignKey: "addressId",
+AddressModel.belongsTo(CompanyModel, {
+    foreignKey: "addressableId",
     constraints: false,
 })
 
-AddressModel.belongsToMany(JobModel, {
-    through: {
-        model: AddressAddressable,
-        unique: false,
-    },
-    foreignKey: "addressId",
+AddressModel.belongsTo(JobModel, {
+    foreignKey: "addressableId",
     constraints: false,
 })
 

@@ -1,5 +1,10 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
-import { AddressModel, UserModel } from "../models/index.js"
+import {
+    AddressModel,
+    CompanyModel,
+    JobModel,
+    UserModel,
+} from "../models/index.js"
 
 AddressModel.addScope("withAssociations", {
     include: [
@@ -10,6 +15,12 @@ AddressModel.addScope("withAssociations", {
                     ...SENSITIVE_DATA_CONSTANTS.USER_SENSITIVE_DATA_CONSTANTS,
                 ],
             },
+        },
+        {
+            model: CompanyModel,
+        },
+        {
+            model: JobModel,
         },
     ],
 })

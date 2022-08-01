@@ -1,35 +1,22 @@
 import {
-    PhonePhoneable,
     PhoneModel,
     CompanyModel,
     JobModel,
     UserModel,
 } from "../models/index.js"
 
-PhoneModel.belongsToMany(UserModel, {
-    through: {
-        model: PhonePhoneable,
-        unique: false,
-    },
-    foreignKey: "phoneId",
+PhoneModel.belongsTo(UserModel, {
+    foreignKey: "phoneableId",
     constraints: false,
 })
 
-PhoneModel.belongsToMany(CompanyModel, {
-    through: {
-        model: PhonePhoneable,
-        unique: false,
-    },
-    foreignKey: "phoneId",
+PhoneModel.belongsTo(CompanyModel, {
+    foreignKey: "phoneableId",
     constraints: false,
 })
 
-PhoneModel.belongsToMany(JobModel, {
-    through: {
-        model: PhonePhoneable,
-        unique: false,
-    },
-    foreignKey: "phoneId",
+PhoneModel.belongsTo(JobModel, {
+    foreignKey: "phoneableId",
     constraints: false,
 })
 

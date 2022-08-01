@@ -9,6 +9,12 @@ Phone.init(
         phone_number: {
             type: STRING,
         },
+        phoneableId: {
+            type: INTEGER,
+        },
+        phoneableType: {
+            type: STRING,
+        },
     },
     { sequelize, modelName: "phone" }
 )
