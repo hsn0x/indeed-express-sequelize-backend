@@ -1,27 +1,23 @@
-import sequelize from "../db/sequelize.js";
+import sequelize from "../db/sequelize.js"
+import SequelizeSlugify from "sequelize-slugify"
 
-import { INTEGER, STRING, TEXT } from "../db/dataTypes.js";
-import { Model } from "sequelize";
+import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-class Review extends Model {}
-Review.init(
-    {
-        rate: {
-            type: INTEGER,
-            allowNull: false,
-        },
-        title: {
-            type: STRING,
-            allowNull: false,
-        },
-        content: {
-            type: TEXT,
-            allowNull: false,
-        },
-        reviewableId: { type: INTEGER },
-        reviewableType: { type: STRING },
+const Review = sequelize.define("Review", {
+    rate: {
+        type: INTEGER,
+        allowNull: false,
     },
-    { sequelize, modelName: "review" }
-);
+    title: {
+        type: STRING,
+        allowNull: false,
+    },
+    content: {
+        type: TEXT,
+        allowNull: false,
+    },
+})
 
-export default Review;
+SequelizeSlugify.slugifyModel(Review, { source: ["title"] })
+
+export default Review

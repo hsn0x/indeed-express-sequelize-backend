@@ -9,9 +9,9 @@ I'm a full stack developer...
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hsn0x)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/hsn_0x)
 
-# Marketplace Express Sequelize Backend API
+# Indeed Express Sequelize Backend API
 
-Multiple Stores Listing Backend API
+Jobs Listing Backend API
 
 ## Authors
 
@@ -34,13 +34,13 @@ on progress
 Clone the project
 
 ```bash
-  git clone https://github.com/hsn0x/marketplace-express-sequelize-backend.git
+  git clone https://github.com/hsn0x/indeed-express-sequelize-backend.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd indeed-express-sequelize-backend
 ```
 
 Install dependencies
@@ -87,12 +87,6 @@ To run this project, you will need to add the following environment variables to
 `SESSION_SECRET`
 `SESSION_NAME`
 
-### Cloudinary
-
-`CLOUDINARY_CLOUD_NAME`
-`CLOUDINARY_API_KEY`
-`CLOUDINARY_API_SECRET`
-
 ### OWNER
 
 `OWNER_FIRST_NAME`
@@ -104,23 +98,12 @@ To run this project, you will need to add the following environment variables to
 `OWNER_AGE`
 `OWNER_GENDER`
 
-### ELASTIC SEARCH
-
-`ELASTIC_SEARCH_HOST`
-`ELASTIC_SEARCH_PORT`
-`ELASTIC_SEARCH_LOG`
-
 ## Features
 
 -   Auth
     -   Login, Register, Logout
--   Stores
+-   Jobs
     -   Create, Edit, Update, Delete Store
--   Products
-    -   Create, Edit, Update, Delete Product
--   Members
-    -   Create, Edit, Update, Delete Member
-        ...
 
 ## Related
 
@@ -128,7 +111,7 @@ Here are some related projects
 
 -   [Marketplace Next.js Express Sequelize Frontend](https://github.com/hsn0x/marketplace-next-express-sequelize-frontend)
 -   [Marketplace Next.js Express MongoDB Frontend](https://github.com/hsn0x/marketplace-next-express-mongodb-frontend)
--   [Todos Express Seuqlieze Backend](https://github.com/hsn0x/marketplace-express-sequelize-backend)
+-   [Todos Express Seuqlieze Backend](https://github.com/hsn0x/indeed-express-sequelize-backend)
 
 ## Roadmap
 

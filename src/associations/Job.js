@@ -1,4 +1,4 @@
-import { Company, Review, User } from "../models/index.js"
+import { Review, User, Company } from "../models/index.js"
 
 Review.belongsTo(User)
 Review.belongsTo(Company)
