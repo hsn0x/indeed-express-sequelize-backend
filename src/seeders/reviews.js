@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { Review } from "../models/index.js"
-import slugify from "slugify"
+import { ReviewModel } from "../models/index.js"
 import { randomNumber } from "../utils/index.js"
 
 export default {
@@ -13,6 +12,6 @@ export default {
             })
         }
 
-        // await Review.bulkCreate(fakeReviews);
+        await ReviewModel.bulkCreate(fakeReviews)
     },
 }

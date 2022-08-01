@@ -23,22 +23,6 @@ export default {
             gender: ownerConfig.gender,
         })
 
-        const ADMIN_ROLE = await rolesQueries.findOneQuery({
-            where: { name: "ADMIN" },
-        })
-        const MODERATOR_ROLE = await rolesQueries.findOneQuery({
-            where: {
-                name: "MODERATOR",
-            },
-        })
-        const EDITOR_ROLE = await rolesQueries.findOneQuery({
-            where: { name: "EDITOR" },
-        })
-
-        await ADMIN_USER.addRole(ADMIN_ROLE.id)
-        await ADMIN_USER.addRole(MODERATOR_ROLE.id)
-        await ADMIN_USER.addRole(EDITOR_ROLE.id)
-
         await ADMIN_USER.createImage({
             public_id: faker.random.word(),
             url: faker.image.imageUrl(200, 200, "nature", true),

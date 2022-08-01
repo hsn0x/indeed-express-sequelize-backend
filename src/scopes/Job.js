@@ -1,11 +1,5 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
-import {
-    JobModel,
-    CompanyModel,
-    Image,
-    User,
-    CompanyModel,
-} from "../models/index.js"
+import { JobModel, CompanyModel, Image, User } from "../models/index.js"
 
 JobModel.addScope("withAssociations", {
     include: [

@@ -3,18 +3,12 @@
  */
 import home from "./home.js"
 import users from "./users.js"
-import products from "./products.js"
-import markets from "./markets.js"
 import auth from "./auth.js"
-import admin from "./admin.js"
-import categories from "./categories.js"
 
-import comments from "./comments.js"
 import reviews from "./reviews.js"
 
-import likes from "./likes.js"
-import votes from "./votes.js"
-import favorites from "./favorites.js"
+import companies from "./companies.js"
+import jobs from "./jobs.js"
 
 /**
  * import Middleware for the application.
@@ -42,17 +36,10 @@ const router = Router()
 router.use("/", home)
 router.use("/auth", auth)
 router.use("/users", users)
-router.use("/products", products)
-router.use("/markets", markets)
-router.use("/admin", AuthMiddleware.isAuth, AuthMiddleware.isAdmin, admin)
-router.use("/categories", categories)
 
-router.use("/comments", comments)
 router.use("/reviews", reviews)
 
-// Buttons
-router.use("/likes", likes)
-router.use("/votes", votes)
-router.use("/favorites", favorites)
+router.use("/jobs", reviews)
+router.use("/companies", reviews)
 
 export default router

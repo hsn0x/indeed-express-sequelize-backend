@@ -1,10 +1,5 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
-import {
-    CompanyModel,
-    CompanyModel,
-    User,
-    CompanyModel,
-} from "../models/index.js"
+import { CompanyModel, User } from "../models/index.js"
 
 CompanyModel.addScope("withAssociations", {
     include: [
