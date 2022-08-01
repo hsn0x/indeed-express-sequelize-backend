@@ -4,7 +4,9 @@ import { JobValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await jobsQueries.findOne({ where: { id } })
+        const data = await jobsQueries.findOne({ where: { id } }, [
+            "withAssociations",
+        ])
         if (data) {
             res.status(200).json(data)
         } else {
@@ -91,7 +93,7 @@ export default {
             CompanyId: Number(CompanyId),
         }
 
-        const isValid = JobValidation.validateUpdate(data)
+        const isValid = await JobValidation.validateUpdate(data)
 
         if (!isValid) {
             res.status(400).json({ message: "Record not updated" })

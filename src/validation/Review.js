@@ -8,10 +8,10 @@ const CreateSchema = {
         rate: { type: "number" },
         title: { type: "string" },
         content: { type: "string" },
-        productId: { type: "number" },
+        CompanyId: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "content", "productId", "UserId"],
+    required: ["rate", "title", "CompanyId", "UserId"],
     additionalProperties: false,
 }
 
@@ -21,10 +21,10 @@ const UpdateSchema = {
         rate: { type: "number" },
         title: { type: "string" },
         content: { type: "string" },
-        productId: { type: "number" },
+        CompanyId: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "content", "productId", "UserId"],
+    required: ["rate", "title", "CompanyId", "UserId"],
     additionalProperties: false,
 }
 

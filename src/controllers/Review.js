@@ -4,7 +4,9 @@ import { ReviewValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await reviewsQueries.findOne({ where: { id } })
+        const data = await reviewsQueries.findOne({ where: { id } }, [
+            "withAssociations",
+        ])
         if (data) {
             res.status(200).json(data)
         } else {
@@ -44,7 +46,7 @@ export default {
             UserId: user.id,
         }
 
-        const isValid = ReviewValidation.validateCreate(data)
+        const isValid = await ReviewValidation.validateCreate(data)
 
         if (!isValid.valid) {
             return res.status(400).json({
@@ -75,7 +77,7 @@ export default {
             UserId: user.id,
         }
 
-        const isValid = ReviewValidation.validateUpdate(data)
+        const isValid = await ReviewValidation.validateUpdate(data)
 
         if (!isValid) {
             res.status(400).json({ message: "Record not updated" })

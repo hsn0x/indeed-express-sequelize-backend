@@ -22,7 +22,7 @@ const verifyCallback = async (email, password, done) => {
                 message: "Incorrect email or password.",
             })
         }
-        const isValid = passwordMatch(
+        const isValid = await passwordMatch(
             password,
             user.passwordHash,
             user.passwordSalt

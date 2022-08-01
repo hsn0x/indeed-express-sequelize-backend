@@ -4,7 +4,9 @@ import { CompanyValidation } from "../validation/index.js"
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await companiesQueries.findOne({ where: { id } })
+        const data = await companiesQueries.findOne({ where: { id } }, [
+            "withAssociations",
+        ])
         if (data) {
             res.status(200).json(data)
         } else {
