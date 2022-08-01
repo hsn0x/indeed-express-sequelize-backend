@@ -5,6 +5,10 @@ import {
     UserModel,
     CompanyModel,
     JobModel,
+    AddressModel,
+    PhoneModel,
+    AddressAddressable,
+    PhonePhoneable,
 } from "../models/index.js"
 
 // hasMany
@@ -26,5 +30,30 @@ UserModel.hasMany(AvatarModel, {
 UserModel.hasMany(JobModel, {})
 UserModel.hasMany(CompanyModel, {})
 UserModel.hasMany(ReviewModel, {})
+
+UserModel.hasMany(PhoneModel, {})
+
+UserModel.belongsToMany(AddressModel, {
+    through: {
+        model: AddressAddressable,
+        unique: false,
+        scope: {
+            addressableType: "user",
+        },
+    },
+    foreignKey: "addressableId",
+    constraints: false,
+})
+UserModel.belongsToMany(PhoneModel, {
+    through: {
+        model: PhonePhoneable,
+        unique: false,
+        scope: {
+            phoneableType: "user",
+        },
+    },
+    foreignKey: "phoneableId",
+    constraints: false,
+})
 
 export default UserModel

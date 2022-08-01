@@ -1,5 +1,5 @@
-import sequelize from "../db/sequelize.js";
-import { INTEGER, STRING, TEXT } from "../db/dataTypes.js";
+import sequelize from "../db/sequelize.js"
+import { INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
 const User = sequelize.define("User", {
     firstName: {
@@ -9,11 +9,6 @@ const User = sequelize.define("User", {
     lastName: {
         type: STRING,
         allowNull: false,
-    },
-    username: {
-        type: STRING,
-        allowNull: false,
-        unique: true,
     },
     description: {
         type: TEXT,
@@ -37,6 +32,6 @@ const User = sequelize.define("User", {
     gender: {
         type: STRING,
     },
-});
+})
 
-export default User;
+export default User

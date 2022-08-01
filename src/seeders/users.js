@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { UserModel } from "../models/index.js"
+import { AddressModel, UserModel } from "../models/index.js"
 import { usersQueries } from "../queries/index.js"
 import { genPassword } from "../lib/passwordUtils.js"
 
@@ -31,6 +31,13 @@ export default {
             public_id: faker.random.word(),
             url: faker.image.imageUrl(200, 200, "people", true),
         })
+
+        await ADMIN_USER.createAddress({
+            street_address: faker.address.streetAddress(),
+            city: faker.address.city(),
+            postal_code: faker.address.zipCode(),
+            country: faker.address.country(),
+        })
     },
 
     createFake: async (record) => {
@@ -53,20 +60,27 @@ export default {
             })
         }
 
-        const users = await UserModel.bulkCreate(fakeUsers)
+        await UserModel.bulkCreate(fakeUsers)
+        const users = await UserModel.findAll()
 
-        for (let index = 0; index < record; index++) {
-            const user = users[index]
+        for (let userIndex = 0; userIndex < users.length; userIndex++) {
+            const user = users[userIndex]
+
             await user.createImage({
                 public_id: faker.random.word(),
                 url: faker.image.imageUrl(200, 200, "nature", true),
             })
-        }
-        for (let index = 0; index < record; index++) {
-            const user = users[index]
+
             await user.createAvatar({
                 public_id: faker.random.word(),
                 url: faker.image.imageUrl(200, 200, "people", true),
+            })
+
+            await user.createAddress({
+                street_address: faker.address.streetAddress(),
+                city: faker.address.city(),
+                postal_code: faker.address.zipCode(),
+                country: faker.address.country(),
             })
         }
     },

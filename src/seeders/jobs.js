@@ -19,5 +19,18 @@ export default {
         }
 
         await JobModel.bulkCreate(fakeJobs)
+        const jobs = await JobModel.findAll()
+
+        for (let jobIndex = 0; jobIndex < jobs.length; jobIndex++) {
+            const job = jobs[jobIndex]
+
+            await job.createAddress({
+                street_address: faker.address.streetAddress(),
+                city: faker.address.city(),
+                postal_code: faker.address.zipCode(),
+                country: faker.address.country(),
+                UserId: randomNumber(1, record),
+            })
+        }
     },
 }
