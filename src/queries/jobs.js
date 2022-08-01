@@ -10,7 +10,6 @@ export default {
             offset,
             filter,
         })
-        console.log({ rows })
         const count = await JobScope.count()
         const { totalItems, totalPages, currentPage } = getPagingData(
             count,
