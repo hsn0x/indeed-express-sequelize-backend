@@ -64,8 +64,8 @@ const UpdateUserPasswordSchema = {
 }
 
 export default {
-    validateCreate: async (userData) => {
-        const valid = ajv.validate(CreateSchema, userData)
+    validateCreate: async (data) => {
+        const valid = ajv.validate(CreateSchema, data)
         if (!valid)
             return {
                 valid,
@@ -73,8 +73,8 @@ export default {
             }
         return { valid }
     },
-    validateUpdate: async (userData) => {
-        const valid = ajv.validate(UpdateSchema, userData)
+    validateUpdate: async (data) => {
+        const valid = ajv.validate(UpdateSchema, data)
         if (!valid)
             return {
                 valid,
@@ -82,8 +82,8 @@ export default {
             }
         return { valid }
     },
-    validateUpdateEmail: async (userData) => {
-        const valid = ajv.validate(UpdateUserEmailSchema, userData)
+    validateUpdateEmail: async (data) => {
+        const valid = ajv.validate(UpdateUserEmailSchema, data)
         if (!valid)
             return {
                 valid,
@@ -91,8 +91,8 @@ export default {
             }
         return { valid }
     },
-    validateUpdatePassword: async (userData) => {
-        const valid = ajv.validate(UpdateUserPasswordSchema, userData)
+    validateUpdatePassword: async (data) => {
+        const valid = ajv.validate(UpdateUserPasswordSchema, data)
         if (!valid)
             return {
                 valid,

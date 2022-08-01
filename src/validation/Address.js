@@ -5,26 +5,20 @@ const ajv = new Ajv()
 const CreateSchema = {
     type: "object",
     properties: {
-        rate: { type: "number" },
-        title: { type: "string" },
-        content: { type: "string" },
-        CompanyId: { type: "number" },
+        phone_number: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "CompanyId", "UserId"],
+    required: [],
     additionalProperties: false,
 }
 
 const UpdateSchema = {
     type: "object",
     properties: {
-        rate: { type: "number" },
-        title: { type: "string" },
-        content: { type: "string" },
-        CompanyId: { type: "number" },
+        phone_number: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["rate", "title", "CompanyId", "UserId"],
+    required: [],
     additionalProperties: false,
 }
 

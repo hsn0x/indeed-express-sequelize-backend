@@ -35,8 +35,8 @@ const UpdateSchema = {
 }
 
 export default {
-    validateCreate: async (reviewData) => {
-        const valid = ajv.validate(CreateSchema, reviewData)
+    validateCreate: async (data) => {
+        const valid = ajv.validate(CreateSchema, data)
         if (!valid)
             return {
                 valid,
@@ -44,8 +44,8 @@ export default {
             }
         return { valid }
     },
-    validateUpdate: async (reviewData) => {
-        const valid = ajv.validate(UpdateSchema, reviewData)
+    validateUpdate: async (data) => {
+        const valid = ajv.validate(UpdateSchema, data)
         if (!valid)
             return {
                 valid,

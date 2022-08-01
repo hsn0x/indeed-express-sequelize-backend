@@ -26,8 +26,8 @@ const CreateRegisterSchema = {
 }
 
 export default {
-    validateRegister: async (registerData) => {
-        const valid = ajv.validate(CreateRegisterSchema, registerData)
+    validateRegister: async (data) => {
+        const valid = ajv.validate(CreateRegisterSchema, data)
         if (!valid)
             return {
                 valid,
