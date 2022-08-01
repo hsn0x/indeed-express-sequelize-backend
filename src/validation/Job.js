@@ -5,18 +5,16 @@ const ajv = new Ajv()
 const CreateSchema = {
     type: "object",
     properties: {
-        name: { type: "string" },
-        about: { type: "string" },
-        ceo: { type: "string" },
-        founded: { type: "string" },
-        company_size: { type: "number" },
-        revenue: { type: "string" },
+        title: { type: "string" },
+        description: { type: "string" },
+        salary_min: { type: "number" },
+        salary_max: { type: "number" },
+        type: { type: "string" },
         industry: { type: "string" },
-        headquarters: { type: "string" },
-        link: { type: "string" },
+        CompanyId: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["name", "about"],
+    required: ["title", "description", "CompanyId"],
     additionalProperties: false,
 }
 
@@ -29,9 +27,10 @@ const UpdateSchema = {
         salary_max: { type: "number" },
         type: { type: "string" },
         industry: { type: "string" },
+        CompanyId: { type: "number" },
         UserId: { type: "number" },
     },
-    required: ["name", "about"],
+    required: ["title", "description", "CompanyId"],
     additionalProperties: false,
 }
 

@@ -40,7 +40,7 @@ export default {
             rate: Number(rate),
             title,
             content,
-            CompanyId,
+            CompanyId: Number(CompanyId),
             UserId: user.id,
         }
 
@@ -71,7 +71,7 @@ export default {
             rate: Number(rate),
             title,
             content,
-            CompanyId,
+            CompanyId: Number(CompanyId),
             UserId: user.id,
         }
 

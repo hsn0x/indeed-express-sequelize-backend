@@ -10,6 +10,7 @@ export default {
                 rate: randomNumber(0, 5),
                 title: faker.lorem.sentence(),
                 content: faker.lorem.paragraph(),
+                CompanyId: randomNumber(1, record),
                 UserId: randomNumber(1, record),
             })
         }

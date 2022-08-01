@@ -34,8 +34,8 @@ export default {
         const {
             title,
             description,
-            salary_min,
-            salary_max,
+            salaryMin,
+            salaryMax,
             type,
             industry,
             CompanyId,
@@ -43,14 +43,14 @@ export default {
         const data = {
             title,
             description,
-            salary_min: Number(salary_min),
-            salary_max: Number(salary_max),
+            salary_min: Number(salaryMin),
+            salary_max: Number(salaryMax),
             type,
             industry,
             CompanyId: Number(CompanyId),
         }
 
-        const isValid = JobValidation.validateCreate(data)
+        const isValid = await JobValidation.validateCreate(data)
 
         if (!isValid.valid) {
             return res.status(400).json({

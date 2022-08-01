@@ -13,6 +13,7 @@ export default {
                 salary_max: randomNumber(50000, 100000),
                 type: faker.name.jobType(),
                 industry: faker.company.bs(),
+                CompanyId: randomNumber(1, record),
                 UserId: randomNumber(1, record),
             })
         }
