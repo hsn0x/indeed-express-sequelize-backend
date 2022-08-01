@@ -1,111 +1,45 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
 
 import {
-    Image,
-    Market,
-    Product,
-    Avatar,
-    Role,
-    Student,
-    User,
-    Like,
-    Vote,
-    Favorite,
-    Review,
-    Comment,
+    ImageModel,
+    AvatarModel,
+    UserModel,
+    ReviewModel,
+    CompanyModel,
+    JobModel,
 } from "../models/index.js"
 
 import {} from "./index.js"
 
-User.addScope("withoutPassword", {
+UserModel.addScope("withoutPassword", {
     attributes: {
         exclude: [...SENSITIVE_DATA_CONSTANTS.USER_SENSITIVE_DATA_CONSTANTS],
     },
 })
 
-User.addScope("withAssociations", {
+UserModel.addScope("withAssociations", {
     include: [
         {
-            model: Market,
-            separate: true,
-            include: [
-                {
-                    model: Avatar,
-                    separate: true,
-                },
-                {
-                    model: Image,
-                    separate: true,
-                },
-            ],
-        },
-        {
-            model: Product,
-            separate: true,
-            include: [
-                {
-                    model: Image,
-                    separate: true,
-                },
-                {
-                    model: Market,
-                    include: [
-                        {
-                            model: Avatar,
-                            separate: true,
-                        },
-                        {
-                            model: Image,
-                            separate: true,
-                        },
-                    ],
-                },
-                {
-                    model: Like,
-                    separate: true,
-                },
-                {
-                    model: Vote,
-                    separate: true,
-                },
-                {
-                    model: Favorite,
-                    separate: true,
-                },
-            ],
-        },
-        {
-            model: Image,
+            model: ImageModel,
             separate: true,
         },
         {
-            model: Avatar,
+            model: AvatarModel,
             separate: true,
         },
         {
-            model: Role,
-        },
-        {
-            model: Like,
+            model: ReviewModel,
             separate: true,
         },
         {
-            model: Vote,
+            model: CompanyModel,
             separate: true,
         },
         {
-            model: Favorite,
-            separate: true,
-        },
-        {
-            model: Comment,
-            separate: true,
-        },
-        {
-            model: Review,
+            model: JobModel,
             separate: true,
         },
     ],
 })
 
-export default User
+export default UserModel

@@ -1,20 +1,19 @@
-import USER_SENSITIVE_DATA_CONSTANTS from "../constants/SensitiveData.js"
-import { Image, Product, Image, Avatar, User } from "../models/index.js"
+import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
+import { UserModel, ImageModel, AvatarModel } from "../models/index.js"
 
-Image.addScope("withAssociations", {
+ImageModel.addScope("withAssociations", {
     include: [
         {
-            model: User,
+            model: UserModel,
             attributes: {
                 exclude: [
                     ...SENSITIVE_DATA_CONSTANTS.USER_SENSITIVE_DATA_CONSTANTS,
                 ],
             },
         },
-        { model: Product, include: [{ model: Image }] },
-        { model: Image },
-        { model: Avatar },
+        { model: ImageModel },
+        { model: AvatarModel },
     ],
 })
 
-export default Image
+export default ImageModel
