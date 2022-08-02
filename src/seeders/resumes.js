@@ -107,7 +107,19 @@ export default {
             })
             await resume.createResumeSkill({
                 name: faker.lorem.word(),
-                proficiency: faker.lorem.sentences(),
+                year_of_experience: [
+                    "less than 1 year",
+                    "1 year",
+                    "2 years",
+                    "3 years",
+                    "4 years",
+                    "5 years",
+                    "6 years",
+                    "7 years",
+                    "8 years",
+                    "9 years",
+                    "10+ years",
+                ][randomNumber(0, 9)],
             })
             await resume.createResumeWorkExperience({
                 job_title: faker.name.jobTitle(),

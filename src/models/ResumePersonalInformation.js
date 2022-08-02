@@ -2,7 +2,6 @@ import sequelize from "../db/sequelize.js"
 import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, BOOLEAN, INTEGER, STRING, TEXT, ENUM } from "../db/dataTypes.js"
-// import { ENUM } from "sequelize"
 
 const ResumePersonalInformation = sequelize.define(
     "ResumePersonalInformation",
