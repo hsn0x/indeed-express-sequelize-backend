@@ -2,18 +2,18 @@ import sequelize from "../db/sequelize.js"
 import { INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 import { Model } from "sequelize"
 
-class Follow extends Model {}
+class Follower extends Model {}
 
-Follow.init(
+Follower.init(
     {
-        followableId: {
+        followerableId: {
             type: INTEGER,
         },
-        followableType: {
+        followerableType: {
             type: STRING,
         },
     },
-    { sequelize, modelName: "Follow" }
+    { sequelize, modelName: "Follower" }
 )
 
-export default Follow
+export default Follower

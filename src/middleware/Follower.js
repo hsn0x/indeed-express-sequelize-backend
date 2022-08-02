@@ -1,17 +1,17 @@
-import { followsQueries } from "../queries/index.js"
+import { followersQueries } from "../queries/index.js"
 
 export default {
     isOwner: async (req, res, next) => {
         const id = parseInt(req.params.id)
         const { session, user } = req
 
-        if (!user.Follows || !user.Follows.length > 0) {
+        if (!user.Followers || !user.Followers.length > 0) {
             return res.status(401).json({
                 message: `You dont have any records`,
             })
         }
 
-        const record = followsQueries.findByPk(id)
+        const record = followersQueries.findByPk(id)
 
         const isOwner = record.UserId === user.id
 

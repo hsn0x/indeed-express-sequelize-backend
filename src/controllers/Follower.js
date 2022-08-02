@@ -1,10 +1,10 @@
-import { followsQueries } from "../queries/index.js"
+import { followersQueries } from "../queries/index.js"
 import { FollowValidation } from "../validation/index.js"
 
 export default {
     getById: async (req, res) => {
         const id = parseInt(req.params.id)
-        const data = await followsQueries.findOne({ where: { id } }, [
+        const data = await followersQueries.findOne({ where: { id } }, [
             "withAssociations",
         ])
         if (data) {
@@ -22,7 +22,7 @@ export default {
             page: parseInt(page),
             size: parseInt(size),
         }
-        const data = await followsQueries.findAll(
+        const data = await followersQueries.findAll(
             {},
             ["withAssociations"],
             params
@@ -55,7 +55,7 @@ export default {
             })
         }
 
-        const recordCreated = await followsQueries.create(data)
+        const recordCreated = await followersQueries.create(data)
 
         if (recordCreated) {
             return res.status(201).json(recordCreated)
@@ -83,7 +83,7 @@ export default {
             res.status(400).json({ message: "Record not updated" })
         }
 
-        const recordUpdated = await followsQueries.update(data, {
+        const recordUpdated = await followersQueries.update(data, {
             id,
         })
 
@@ -98,7 +98,7 @@ export default {
 
     remove: async (req, res) => {
         const id = parseInt(req.params.id)
-        const recordDeleted = await followsQueries.delete({ id })
+        const recordDeleted = await followersQueries.delete({ id })
         res.status(200).json(recordDeleted)
     },
 }

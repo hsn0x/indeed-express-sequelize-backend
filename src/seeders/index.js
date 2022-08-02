@@ -6,6 +6,8 @@ export { default as jobsSeeders } from "./jobs.js"
 export { default as jobBenefitsSeeders } from "./jobBenefits.js"
 export { default as jobQualificationsSeeders } from "./jobQualifications.js"
 
+export { default as followersSeeders } from "./followers.js"
+
 export { default as resumesSeeders } from "./resumes.js"
 
 import usersSeeders from "./users.js"
@@ -17,6 +19,8 @@ import jobBenefitsSeeders from "./jobBenefits.js"
 import jobQualificationsSeeders from "./jobQualifications.js"
 
 import resumesSeeders from "./resumes.js"
+
+import followersSeeders from "./followers.js"
 
 const RECORD = seedersConfig.amount
 
@@ -44,5 +48,7 @@ export default {
         await reviewsSeeders.createFake(RECORD)
 
         await resumesSeeders.createFake(RECORD)
+
+        await followersSeeders.createFake(RECORD)
     },
 }

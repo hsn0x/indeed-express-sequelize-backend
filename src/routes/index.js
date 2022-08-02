@@ -14,7 +14,7 @@ import addresses from "./addresses.js"
 import phones from "./phones.js"
 import resumes from "./resumes.js"
 
-import follows from "./follows.js"
+import followers from "./followers.js"
 
 import notfound from "./notfound.js"
 
@@ -54,7 +54,7 @@ router.use("/addresses", addresses)
 router.use("/phones", phones)
 router.use("/resumes", resumes)
 
-router.use("/follows", follows)
+router.use("/followers", followers)
 
 router.use("*", notfound)
 

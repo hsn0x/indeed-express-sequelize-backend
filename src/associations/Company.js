@@ -3,7 +3,7 @@ import {
     CompanyModel,
     AddressModel,
     PhoneModel,
-    FollowModel,
+    FollowerModel,
 } from "../models/index.js"
 
 CompanyModel.belongsTo(UserModel)
@@ -22,11 +22,11 @@ CompanyModel.hasMany(PhoneModel, {
         phoneableType: "company",
     },
 })
-CompanyModel.hasMany(FollowModel, {
-    foreignKey: "followableId",
+CompanyModel.hasMany(FollowerModel, {
+    foreignKey: "followerableId",
     constraints: false,
     scope: {
-        followableType: "company",
+        followerableType: "company",
     },
 })
 

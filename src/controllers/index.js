@@ -11,6 +11,6 @@ export { default as PhoneController } from "./Phone.js"
 
 export { default as ResumeController } from "./Resume.js"
 
-export { default as FollowController } from "./Follow.js"
+export { default as FollowerController } from "./Follower.js"
 
 export { default as NotFoundController } from "./NotFound.js"

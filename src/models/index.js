@@ -15,7 +15,7 @@ export { default as AddressModel } from "./Address.js"
 
 export { default as PhoneModel } from "./Phone.js"
 
-export { default as FollowModel } from "./Follow.js"
+export { default as FollowerModel } from "./Follower.js"
 
 export { default as ResumeModel } from "./Resume.js"
 export { default as ResumeAdditionalInformationModel } from "./ResumeAdditionalInformation.js"

@@ -8,7 +8,7 @@ import {
     AddressModel,
     PhoneModel,
     ResumeModel,
-    FollowModel,
+    FollowerModel,
 } from "../models/index.js"
 
 // hasMany
@@ -45,11 +45,11 @@ UserModel.hasMany(PhoneModel, {
         phoneableType: "user",
     },
 })
-UserModel.hasMany(FollowModel, {
-    foreignKey: "followableId",
+UserModel.hasMany(FollowerModel, {
+    foreignKey: "followerableId",
     constraints: false,
     scope: {
-        followableType: "user",
+        followerableType: "user",
     },
 })
 UserModel.hasOne(ResumeModel, {})

@@ -9,7 +9,7 @@ import {
     JobModel,
     AddressModel,
     PhoneModel,
-    FollowModel,
+    FollowerModel,
 } from "../models/index.js"
 
 import {} from "./index.js"
@@ -51,7 +51,7 @@ UserModel.addScope("withAssociations", {
             separate: true,
         },
         {
-            model: FollowModel,
+            model: FollowerModel,
             separate: true,
         },
     ],

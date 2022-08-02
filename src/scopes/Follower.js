@@ -1,7 +1,7 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
-import { CompanyModel, FollowModel, UserModel } from "../models/index.js"
+import { CompanyModel, FollowerModel, UserModel } from "../models/index.js"
 
-FollowModel.addScope("withAssociations", {
+FollowerModel.addScope("withAssociations", {
     include: [
         {
             model: UserModel,
@@ -17,4 +17,4 @@ FollowModel.addScope("withAssociations", {
     ],
 })
 
-export default FollowModel
+export default FollowerModel
