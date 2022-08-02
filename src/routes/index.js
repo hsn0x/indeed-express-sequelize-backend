@@ -54,7 +54,7 @@ router.use("/addresses", addresses)
 router.use("/phones", phones)
 router.use("/resumes", resumes)
 
-router.use("/followers", followers)
+// router.use("/followers", followers)
 
 router.use("*", notfound)
 

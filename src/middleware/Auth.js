@@ -152,7 +152,6 @@ export default {
      */
     isGuest: async (req, res, next) => {
         const auth = req.isAuthenticated()
-
         if (!auth) {
             return next()
         } else {
