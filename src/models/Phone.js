@@ -16,7 +16,7 @@ Phone.init(
             type: STRING,
         },
     },
-    { sequelize, modelName: "phone" }
+    { sequelize, modelName: "Phone" }
 )
 
 export default Phone

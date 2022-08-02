@@ -1,8 +1,8 @@
-import sequelize from "../db/sequelize.js";
-import SequelizeSlugify from "sequelize-slugify";
+import sequelize from "../db/sequelize.js"
+import SequelizeSlugify from "sequelize-slugify"
 
-import { STRING, TEXT } from "../db/dataTypes.js";
-import { Model } from "sequelize";
+import { STRING, TEXT } from "../db/dataTypes.js"
+import { Model } from "sequelize"
 
 class Image extends Model {}
 
@@ -47,7 +47,7 @@ Image.init(
         imageableId: { type: STRING },
         imageableType: { type: STRING },
     },
-    { sequelize, modelName: "image" }
-);
+    { sequelize, modelName: "Image" }
+)
 
-export default Image;
+export default Image

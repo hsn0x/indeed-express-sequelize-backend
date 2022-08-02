@@ -25,7 +25,7 @@ Address.init(
             type: STRING,
         },
     },
-    { sequelize, modelName: "address" }
+    { sequelize, modelName: "Address" }
 )
 
 export default Address

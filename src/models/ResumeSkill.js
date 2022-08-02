@@ -3,13 +3,13 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const JobBenefit = sequelize.define("Job_Benefit", {
+const ResumeSkills = sequelize.define("Resume_Skill", {
     name: {
         type: STRING,
-        allowNull: false,
+    },
+    year_of_experience: {
+        type: TEXT,
     },
 })
 
-SequelizeSlugify.slugifyModel(JobBenefit, { source: ["title"] })
-
-export default JobBenefit
+export default ResumeSkills
