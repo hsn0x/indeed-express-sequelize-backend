@@ -1,5 +1,8 @@
-import { ResumeAdditionalInformation } from "../models/index.js"
+import {
+    ResumeAdditionalInformationModel,
+    ResumeModel,
+} from "../models/index.js"
 
-ResumeAdditionalInformation.belongsTo(ResumeModel, {})
+ResumeAdditionalInformationModel.belongsTo(ResumeModel, {})
 
-export default ResumeAdditionalInformation
+export default ResumeAdditionalInformationModel

@@ -1,5 +1,5 @@
-import { ResumeSkill } from "../models/index.js"
+import { ResumeModel, ResumeSkillModel } from "../models/index.js"
 
-ResumeSkill.belongsTo(ResumeModel, {})
+ResumeSkillModel.belongsTo(ResumeModel, {})
 
-export default ResumeSkill
+export default ResumeSkillModel

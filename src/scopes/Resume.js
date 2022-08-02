@@ -6,8 +6,8 @@ import {
     UserModel,
     ResumeLinkModel,
     ResumeGroupModel,
-    ResumeAdditionalInformationModal,
-    ResumeAwardsModel,
+    ResumeAdditionalInformationModel,
+    ResumeAwardModel,
     ResumeCertificationModel,
     ResumeLanguageModel,
     ResumeMilitaryServiceModel,
@@ -29,10 +29,10 @@ ResumeModel.addScope("withAssociations", {
             },
         },
         {
-            model: ResumeAdditionalInformationModal,
+            model: ResumeAdditionalInformationModel,
         },
         {
-            model: ResumeAwardsModel,
+            model: ResumeAwardModel,
         },
         {
             model: ResumeCertificationModel,

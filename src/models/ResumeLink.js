@@ -3,7 +3,7 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const ResumeLink = sequelize.define("Resume_Link", {
+const ResumeLink = sequelize.define("ResumeLink", {
     url: {
         type: TEXT,
     },

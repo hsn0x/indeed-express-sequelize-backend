@@ -1,5 +1,5 @@
-import { ResumeMilitaryService } from "../models/index.js"
+import { ResumeMilitaryServiceModel, ResumeModel } from "../models/index.js"
 
-ResumeMilitaryService.belongsTo(ResumeModel, {})
+ResumeMilitaryServiceModel.belongsTo(ResumeModel, {})
 
-export default ResumeMilitaryService
+export default ResumeMilitaryServiceModel

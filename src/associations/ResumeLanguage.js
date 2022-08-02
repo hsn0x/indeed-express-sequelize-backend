@@ -1,5 +1,5 @@
-import { ResumeLanguage } from "../models/index.js"
+import { ResumeLanguageModel, ResumeModel } from "../models/index.js"
 
-ResumeLanguage.belongsTo(ResumeModel, {})
+ResumeLanguageModel.belongsTo(ResumeModel, {})
 
-export default ResumeLanguage
+export default ResumeLanguageModel

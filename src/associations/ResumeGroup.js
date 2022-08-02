@@ -1,5 +1,5 @@
-import { ResumeGroup } from "../models/index.js"
+import { ResumeGroupModel, ResumeModel } from "../models/index.js"
 
-ResumeGroup.belongsTo(ResumeModel, {})
+ResumeGroupModel.belongsTo(ResumeModel, {})
 
-export default ResumeGroup
+export default ResumeGroupModel

@@ -3,7 +3,7 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, BOOLEAN, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const ResumeCertification = sequelize.define("Resume_Certification", {
+const ResumeCertification = sequelize.define("ResumeCertification", {
     title: {
         type: STRING,
     },

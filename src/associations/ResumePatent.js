@@ -1,5 +1,5 @@
-import { ResumePatent } from "../models/index.js"
+import { ResumeModel, ResumePatentModel } from "../models/index.js"
 
-ResumePatent.belongsTo(ResumeModel, {})
+ResumePatentModel.belongsTo(ResumeModel, {})
 
-export default ResumePatent
+export default ResumePatentModel

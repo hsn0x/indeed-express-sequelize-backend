@@ -1,5 +1,5 @@
-import { ResumeCertification } from "../models/index.js"
+import { ResumeCertificationModel, ResumeModel } from "../models/index.js"
 
-ResumeCertification.belongsTo(ResumeModel, {})
+ResumeCertificationModel.belongsTo(ResumeModel, {})
 
-export default ResumeCertification
+export default ResumeCertificationModel

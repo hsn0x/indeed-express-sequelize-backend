@@ -3,7 +3,7 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const ResumeGroups = sequelize.define("Resume_Group", {
+const ResumeGroup = sequelize.define("ResumeGroup", {
     title: {
         type: STRING,
         allowNull: false,
@@ -26,4 +26,4 @@ const ResumeGroups = sequelize.define("Resume_Group", {
     },
 })
 
-export default ResumeGroups
+export default ResumeGroup

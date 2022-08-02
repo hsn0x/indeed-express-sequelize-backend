@@ -4,29 +4,26 @@ import SequelizeSlugify from "sequelize-slugify"
 import { ARRAY, BOOLEAN, INTEGER, STRING, TEXT, ENUM } from "../db/dataTypes.js"
 // import { ENUM } from "sequelize"
 
-const ResumePersonalnformation = sequelize.define(
-    "Resume_Personal_Information",
+const ResumePersonalInformation = sequelize.define(
+    "ResumePersonalInformation",
     {
         first_name: {
-            type: INTEGER,
+            type: STRING,
         },
         last_name: {
             type: STRING,
         },
         headline: {
-            type: TEXT,
+            type: STRING,
         },
         summary: {
             type: TEXT,
         },
-        headline: {
-            type: TEXT,
-        },
         city: {
-            type: TEXT,
+            type: STRING,
         },
         postal_code: {
-            type: TEXT,
+            type: STRING,
         },
         relocation: {
             type: BOOLEAN,
@@ -41,4 +38,4 @@ const ResumePersonalnformation = sequelize.define(
     }
 )
 
-export default ResumePersonalnformation
+export default ResumePersonalInformation

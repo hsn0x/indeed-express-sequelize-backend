@@ -1,6 +1,6 @@
 import {
-    ResumeAdditionalInformationModal,
-    ResumeAwardsModel,
+    ResumeAdditionalInformationModel,
+    ResumeAwardModel,
     ResumeCertificationModel,
     ResumeGroupModel,
     ResumeLanguageModel,
@@ -17,8 +17,8 @@ import {
 
 ResumeModel.belongsTo(UserModel, {})
 
-ResumeModel.hasMany(ResumeAdditionalInformationModal, {})
-ResumeModel.hasMany(ResumeAwardsModel, {})
+ResumeModel.hasMany(ResumeAdditionalInformationModel, {})
+ResumeModel.hasMany(ResumeAwardModel, {})
 ResumeModel.hasMany(ResumeCertificationModel, {})
 ResumeModel.hasMany(ResumeGroupModel, {})
 ResumeModel.hasMany(ResumeLanguageModel, {})

@@ -3,7 +3,7 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const ResumePublications = sequelize.define("Resume_Publication", {
+const ResumePublication = sequelize.define("ResumePublication", {
     title: {
         type: STRING,
     },
@@ -21,4 +21,4 @@ const ResumePublications = sequelize.define("Resume_Publication", {
     },
 })
 
-export default ResumePublications
+export default ResumePublication

@@ -3,13 +3,12 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const ResumePatents = sequelize.define("Resume_Patent", {
+const ResumePatent = sequelize.define("ResumePatent", {
     title: {
-        type: INTEGER,
+        type: STRING,
     },
     patent_number: {
         type: STRING,
-        allowNull: false,
     },
     url: {
         type: STRING,
@@ -25,4 +24,4 @@ const ResumePatents = sequelize.define("Resume_Patent", {
     },
 })
 
-export default ResumePatents
+export default ResumePatent

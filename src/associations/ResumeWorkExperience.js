@@ -1,5 +1,5 @@
-import { ResumeWorkExperience } from "../models/index.js"
+import { ResumeModel, ResumeWorkExperienceModel } from "../models/index.js"
 
-ResumeWorkExperience.belongsTo(ResumeModel, {})
+ResumeWorkExperienceModel.belongsTo(ResumeModel, {})
 
-export default ResumeWorkExperience
+export default ResumeWorkExperienceModel

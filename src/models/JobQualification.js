@@ -3,7 +3,7 @@ import SequelizeSlugify from "sequelize-slugify"
 
 import { ARRAY, INTEGER, STRING, TEXT } from "../db/dataTypes.js"
 
-const JobQualifications = sequelize.define("Job_Qualifications", {
+const JobQualifications = sequelize.define("JobQualifications", {
     name: {
         type: STRING,
         allowNull: false,

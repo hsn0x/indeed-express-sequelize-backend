@@ -1,5 +1,5 @@
-import { ResumeLink } from "../models/index.js"
+import { ResumeLinkModel, ResumeModel } from "../models/index.js"
 
-ResumeLink.belongsTo(ResumeModel, {})
+ResumeLinkModel.belongsTo(ResumeModel, {})
 
-export default ResumeLink
+export default ResumeLinkModel

@@ -1,5 +1,5 @@
-import { ResumePublication } from "../models/index.js"
+import { ResumeModel, ResumePublicationModel } from "../models/index.js"
 
-ResumePublication.belongsTo(ResumeModel, {})
+ResumePublicationModel.belongsTo(ResumeModel, {})
 
-export default ResumePublication
+export default ResumePublicationModel
