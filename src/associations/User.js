@@ -7,6 +7,7 @@ import {
     JobModel,
     AddressModel,
     PhoneModel,
+    ResumeModel,
 } from "../models/index.js"
 
 // hasMany
@@ -43,5 +44,6 @@ UserModel.hasMany(PhoneModel, {
         phoneableType: "user",
     },
 })
+UserModel.hasOne(ResumeModel, {})
 
 export default UserModel

@@ -7,3 +7,5 @@ export { default as JobScope } from "./Job.js"
 
 export { default as AddressScope } from "./Address.js"
 export { default as PhoneScope } from "./Phone.js"
+
+export { default as ResumeScope } from "./Resume.js"

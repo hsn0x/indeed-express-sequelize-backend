@@ -8,3 +8,5 @@ export { default as ReviewController } from "./Review.js"
 
 export { default as AddressController } from "./Address.js"
 export { default as PhoneController } from "./Phone.js"
+
+export { default as ResumeController } from "./Resume.js"

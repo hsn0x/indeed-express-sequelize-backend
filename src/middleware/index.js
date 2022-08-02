@@ -13,6 +13,7 @@ export { default as JobMiddleware } from "./Job.js"
 
 export { default as AddressMiddleware } from "./Address.js"
 export { default as PhoneMiddleware } from "./Phone.js"
+export { default as ResumeMiddleware } from "./Resume.js"
 
 const router = Router()
 

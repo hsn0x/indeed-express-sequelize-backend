@@ -12,6 +12,7 @@ import jobs from "./jobs.js"
 
 import addresses from "./addresses.js"
 import phones from "./phones.js"
+import resumes from "./resumes.js"
 
 /**
  * import Middleware for the application.
@@ -47,5 +48,6 @@ router.use("/companies", companies)
 
 router.use("/addresses", addresses)
 router.use("/phones", phones)
+router.use("/resumes", resumes)
 
 export default router

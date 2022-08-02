@@ -12,7 +12,10 @@ import {
     ResumePublicationModel,
     ResumeSkillModel,
     ResumeWorkExperienceModel,
+    UserModel,
 } from "../models/index.js"
+
+ResumeModel.belongsTo(UserModel, {})
 
 ResumeModel.hasMany(ResumeAdditionalInformationModal, {})
 ResumeModel.hasMany(ResumeAwardsModel, {})
@@ -27,4 +30,4 @@ ResumeModel.hasMany(ResumePublicationModel, {})
 ResumeModel.hasMany(ResumeSkillModel, {})
 ResumeModel.hasMany(ResumeWorkExperienceModel, {})
 
-export default PhoneModel
+export default ResumeModel

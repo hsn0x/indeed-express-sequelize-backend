@@ -11,3 +11,5 @@ export { default as ReviewAssociations } from "./Review.js"
 
 export { default as AddressAssociations } from "./Address.js"
 export { default as PhoneAssociations } from "./Phone.js"
+
+export { default as ResumeAssociations } from "./Resume.js"
