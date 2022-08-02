@@ -11,9 +11,9 @@ export default {
             })
         }
 
-        const job = jobsQueries.findByPk(job.id)
+        const record = jobsQueries.findByPk(id)
 
-        const isOwner = job.UserId === user.id
+        const isOwner = record.UserId === user.id
 
         if (isOwner) {
             return next()

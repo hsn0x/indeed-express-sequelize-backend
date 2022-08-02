@@ -11,9 +11,9 @@ export default {
             })
         }
 
-        const company = companiesQueries.findByPk(company.id)
+        const record = companiesQueries.findByPk(id)
 
-        const isOwner = company.UserId === user.id
+        const isOwner = record.UserId === user.id
 
         if (isOwner) {
             return next()
