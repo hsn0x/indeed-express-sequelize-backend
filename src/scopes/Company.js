@@ -2,6 +2,7 @@ import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
 import {
     AddressModel,
     CompanyModel,
+    FollowModel,
     PhoneModel,
     UserModel,
 } from "../models/index.js"
@@ -21,6 +22,9 @@ CompanyModel.addScope("withAssociations", {
         },
         {
             model: PhoneModel,
+        },
+        {
+            model: FollowModel,
         },
     ],
 })

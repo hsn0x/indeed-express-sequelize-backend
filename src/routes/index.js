@@ -14,6 +14,10 @@ import addresses from "./addresses.js"
 import phones from "./phones.js"
 import resumes from "./resumes.js"
 
+import follows from "./follows.js"
+
+import notfound from "./notfound.js"
+
 /**
  * import Middleware for the application.
  */
@@ -49,5 +53,9 @@ router.use("/companies", companies)
 router.use("/addresses", addresses)
 router.use("/phones", phones)
 router.use("/resumes", resumes)
+
+router.use("/follows", follows)
+
+router.use("*", notfound)
 
 export default router

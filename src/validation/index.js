@@ -9,4 +9,6 @@ export { default as JobValidation } from "./Job.js"
 export { default as AddressValidation } from "./Address.js"
 export { default as PhoneValidation } from "./Phone.js"
 
+export { default as FollowValidation } from "./Follow.js"
+
 export { default as ResumeValidation } from "./Resume.js"

@@ -1,8 +1,6 @@
 import { SENSITIVE_DATA_CONSTANTS } from "../constants/index.js"
 import {
     ResumeModel,
-    CompanyModel,
-    ImageModel,
     UserModel,
     ResumeLinkModel,
     ResumeGroupModel,

@@ -15,6 +15,10 @@ export { default as AddressMiddleware } from "./Address.js"
 export { default as PhoneMiddleware } from "./Phone.js"
 export { default as ResumeMiddleware } from "./Resume.js"
 
+export { default as FollowMiddleware } from "./Follow.js"
+
+export { default as NotFoundMiddleware } from "./NotFound.js"
+
 const router = Router()
 
 const corsConfig = {
