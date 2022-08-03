@@ -39,23 +39,27 @@ export default {
 
         const {
             name,
+            numberOfEmployees,
             about,
             ceo,
             founded,
             companySize,
             revenue,
             industry,
+            subIndustry,
             headquarters,
             link,
         } = req.body
         const data = {
             name,
+            number_of_employees: Number(numberOfEmployees),
             about,
             ceo,
             founded,
             company_size: Number(companySize),
             revenue: Number(revenue),
             industry,
+            sub_industry: subIndustry,
             headquarters,
             link,
             UserId: user.id,

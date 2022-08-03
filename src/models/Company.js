@@ -50,6 +50,6 @@ const Company = sequelize.define("Company", {
     },
 })
 
-SequelizeSlugify.slugifyModel(Company, { source: ["title"] })
+SequelizeSlugify.slugifyModel(Company, { source: ["name"] })
 
 export default Company

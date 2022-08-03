@@ -19,6 +19,7 @@ export default {
 
             const fakeCompany = {
                 name: faker.company.companyName(),
+                number_of_employees: faker.random.numeric(),
                 about: faker.company.catchPhrase(),
                 ceo: faker.name.findName(),
                 founded: faker.date.past().toISOString(),
