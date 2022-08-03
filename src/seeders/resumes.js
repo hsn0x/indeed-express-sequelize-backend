@@ -1,4 +1,8 @@
 import { faker } from "@faker-js/faker"
+import {
+    RESUME_PERSONAL_INFORMATION_CONSTANTS,
+    RESUME_SKILL_CONSTANTS,
+} from "../constants/index.js"
 import { ResumeModel } from "../models/index.js"
 import { randomNumber } from "../utils/index.js"
 
@@ -84,11 +88,15 @@ export default {
                 city: faker.address.city(),
                 postal_code: faker.address.zipCode(),
                 relocation: faker.datatype.boolean(),
-                employment_eligibility: [
-                    "authorized_to_work_in_the_us_for_any_employer",
-                    "sponsorship_required_to_work_in_the_us",
-                    "not_specified",
-                ][randomNumber(0, 2)],
+                employment_eligibility:
+                    RESUME_PERSONAL_INFORMATION_CONSTANTS
+                        .employment_eligibility[
+                        randomNumber(
+                            0,
+                            RESUME_PERSONAL_INFORMATION_CONSTANTS
+                                .employment_eligibility.length - 1
+                        )
+                    ],
             })
             await resume.createResumePublication({
                 title: faker.lorem.sentence(),
@@ -107,19 +115,13 @@ export default {
             })
             await resume.createResumeSkill({
                 name: faker.lorem.word(),
-                year_of_experience: [
-                    "less than 1 year",
-                    "1 year",
-                    "2 years",
-                    "3 years",
-                    "4 years",
-                    "5 years",
-                    "6 years",
-                    "7 years",
-                    "8 years",
-                    "9 years",
-                    "10+ years",
-                ][randomNumber(0, 9)],
+                year_of_experience:
+                    RESUME_SKILL_CONSTANTS.yearOfExperience[
+                        randomNumber(
+                            0,
+                            RESUME_SKILL_CONSTANTS.yearOfExperience.length - 1
+                        )
+                    ],
             })
             await resume.createResumeWorkExperience({
                 job_title: faker.name.jobTitle(),
