@@ -1,4 +1,9 @@
-const COMPANY = {
+const JOB = {
+    location: [
+        { name: "In person" },
+        { name: "Remote" },
+        { name: "On the road" },
+    ],
     schedule: [
         { name: "4x12" },
         { name: "5x8" },
@@ -170,4 +175,4 @@ const COMPANY = {
     ],
 }
 
-export default COMPANY
+export default JOB
