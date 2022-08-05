@@ -1,6 +1,6 @@
 {
     "name": "indeed-express-sequelize-backend",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Jobs Listing API",
     "main": "src/index.js",
     "author": "Hassane Bendaoud <40140987+hsn0x@users.noreply.github.com>",
